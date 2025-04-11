@@ -1,0 +1,372 @@
+:root {
+    font-size: 16px;
+    font-family: "Inria Sans", sans-serif;
+    color: black;
+    --c1-align: right;
+    --bg1: #eff;
+    --bg2: #efe;
+    --template: minmax(10rem, 33%) minmax(15rem, auto);
+    --main-padding: clamp(6px, 3vw, 4rem);
+    --main-padding-neg: calc(1-clamp(6px, 3vw, 4rem))
+}
+
+* {
+    scroll-behavior: smooth;
+    vertical-align: baseline;
+    animation-duration: 0ms;
+    column-gap: 1rem;
+}
+
+a {
+
+    color: blue;
+    /* blue colors for links too */
+    text-decoration: inherit;
+    /* no underline */
+}
+
+
+a:hover {
+    text-decoration: underline;
+}
+
+strong {
+    color: rgb(127, 42, 153);
+    background-color: rgba(255, 255, 255, 0.556);
+}
+
+@media (max-width: 40rem) {
+    :root {
+        --template: 1fr;
+        --c1-align: left;
+    }
+
+    * {
+        grid-column-start: 1;
+        width: 100%;
+        column-gap: 0;
+    }
+    .right:not(figure), dd{
+        padding-left:1rem;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+span,
+dd {
+    max-width: 70ch;
+}
+
+
+
+img {
+    display: block;
+    object-fit: cover;
+    max-width: 100%;
+}
+
+main {
+    padding: 0;
+    background-color: var(--bg2);
+    width: 100vw;
+    height: 100vh;
+    scroll-snap-type: both mandatory;
+    overflow-y: scroll;
+
+}
+
+section {
+    position: relative;
+    padding: 0 var(--main-padding);
+    padding-bottom: calc(2*var(--main-padding));
+    scroll-snap-align: start;
+    overflow-y: auto;
+    height: 100vh;
+    grid-template-columns: var(--template)
+}
+
+ul,
+ol {
+    padding-left: 1em;
+}
+
+:is(ul, ol)>*{
+margin-bottom:0.4em;
+}
+
+dd{
+    margin-bottom:1em;
+}
+dt{
+    margin-bottom: 0.5em;
+}
+dl, p, figure,h3 {
+    margin-bottom: 1em
+}
+li>ul {
+    margin-top: .5em;
+}
+h3{
+    margin-top: 1em;
+}
+
+.wrapping-multi-col {
+    display: grid;
+    grid-auto-rows: max-content;
+    align-items: start;
+    justify-items: stretch;
+}
+
+
+
+h1 {
+    text-wrap: balance;
+}
+
+h2 {
+    padding-top: var(--main-padding);
+    padding-bottom: 0.5em;
+    grid-column: 1 / span 1;
+    border-bottom: 2px solid black;
+}
+
+hgroup:has(h2) {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-row-start: 1;
+    grid-column: 1 / span 2;
+    position: sticky;
+    top: 0;
+    background-color: var(--bg2);
+    margin-bottom: 1em;
+   
+}
+
+hgroup:has(h2)>*,
+dt, .left {
+    text-align: var(--c1-align);
+    grid-column: 1 / span 1;
+    text-wrap: balance;
+}
+
+hgroup:has(h2)+* {
+    grid-row-start: 2;
+}
+
+hgroup:has(h2)~*:not(table) {
+    grid-column: 1 / span 2;
+    display: grid;
+    grid-template-columns: subgrid;
+
+}
+
+dd, h3 {
+    grid-column: 2 / span 1;
+}
+
+iframe{
+    display: block;
+    margin:0;
+    margin-top: 1rem;
+}
+figure {
+    max-width: 100%;
+    margin-top: .5rem;
+    gap: 0;
+  
+
+}
+
+figure>img{
+    width: 100%;
+    max-height: 35rlh;
+    max-width: 70ch;
+    object-fit: cover;
+    border: 4px solid #0002;
+   
+}
+
+figcaption {
+    margin-left: auto;
+    height: min-content;
+    font-size: .8em;
+ width: fit-content;
+    text-align: right;
+    font-style: italic;
+    padding: .5rem;
+    text-wrap: balance;
+}
+
+table {
+    display: table;
+    border-collapse: collapse;
+    background-color: #fffa;
+    padding: 1em;
+}
+
+tr {
+    border-bottom: 1px solid #0005;
+}
+
+td, th {
+padding: .5em;
+
+}
+
+
+summary {
+    list-style: none;
+}
+
+summary::after {
+    content: "+";
+    padding-left: 0.5ch;
+    font-weight: bold;
+    display: inline;
+}
+
+details[open]>summary::after {
+    content: "-";
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+details:hover,
+details[open] {
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+/* summary:hover+* {
+    display: block;
+} */
+
+/* details:hover *:not(summary) {
+    display: block;
+    font-weight: normal;
+} */
+
+details[open] *:not(summary) {
+    font-weight: normal;
+}
+
+.full {
+    grid-column: 1 / span 2;
+    width: 100%;
+    height: 100%;
+}
+
+.carrousel-container {
+    grid-column: 1 / span 2;
+    width: 100%;
+    overflow-x: scroll;
+}
+
+.carrousel {
+    grid-column: 1 / span 2;
+    height: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+a:not(a[href^="#"])::after {
+    height: 1lh ;
+    width: 2lh;
+    padding: 0 0.5em ;
+    color: blue;
+    /* content: "↗"; */
+    content: url('https://upload.wikimedia.org/wikipedia/commons/9/96/Link-external-small-ltr-progressive.svg');
+
+}
+
+.mosaic {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(12rem, calc(45% - 1rem)));
+    align-items: stretch;
+    /* Minimum width of 10rem */
+    gap: 1rem;
+    /* Space between cards */
+}
+
+.mosaic>* {
+   
+    width: 100%;
+    text-align: center;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    /* Center content */
+}
+
+.activity {
+    background-color: #eff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    vertical-align: middle;
+}
+
+.activity * {
+    text-align: center;
+    text-wrap: balance;
+}
+
+.description {
+    margin-top: .5em;
+    padding: .5em;
+    font-style: italic;
+    background-color: #0002;
+    backdrop-filter: darken(0.5);
+    border-radius: .5em;
+}
+
+dt {
+    font-weight: bold;
+
+}
+
+.right, dd {
+    grid-column: 2 / span 1;
+}
+
+@media (max-width: 40rem) {
+    hgroup {
+        margin-bottom: 1rem;
+    }
+
+    dl,
+    .sm-grid {
+        grid-template-columns: 1fr;
+        /* Passe en affichage vertical sur petits écrans */
+    }
+
+    dt,
+    .left,
+    hgroup>* {
+        text-align: left;
+
+        /* Align text to the left in vertical mode */
+    }
+
+    dd,
+    dt,
+    .right,
+    .left {
+        grid-column-start: 1;
+    }
+}

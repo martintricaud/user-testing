@@ -1,0 +1,1709 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <link rel="stylesheet" href="style2.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main>
+        <section id="plan" title="" class=" wrapping-multi-col ">
+            <hgroup>
+                <h2>Evaluation de l'expérience utilisateur en design interactif</h2>
+            </hgroup>
+            <dl>
+                <dt><span><a href="#origins-of-usability">Aux origines de l'usabilité</a></span></dt>
+                <dd>
+                </dd>
+                <dt><span>Que cherche-t-on à évaluer?</span></dt>
+                <dd>
+
+
+
+
+                    <!-- Comme dans n'importe quel domaine de la conception et du design, on cherche à créer ou modifier un objet pour réaliser ou se rapprocher d'une intention.
+                    Je veux que cet objet produise tel effet (physique, économique, psychologique) dans tel environnement.
+                    Avant de lacher un objet dans la nature, on veut s'assurer que les choix de conception produisent bel et bien les effets prévus.
+                    Donc que son usage et ses effets réels correspondent à l'usage et l'effet anticipé.
+                    Plus une étape d'un processus de design sera couteuse, plus on veut savoir à l'avance si elle produira l'effet escompté -->
+                </dd>
+
+                <dt><span>
+                        Quelles sont les approches possibles?
+                    </span></dt>
+                <dd>
+                    <ul>
+                        <li><a href="#heuristiques">Approches heuristiques</a></li>
+                        <li><a href="#approches-analytiques">Approches analytiques</a></li>
+                        <li> <a href="#approches-empiriques">Approches empiriques</a></li>
+                    </ul>
+
+                    <!-- Lorsqu'on ne passe pas par des utilisateurs réels on appelle plutôt ça une inspection qu'un test -->
+                </dd>
+
+                <dt><span><a href="#design-cycle">Positionnement dans un procssus de design</a></span></dt>
+                <dd>
+                    <ul>
+                        <li>Avant que l'objet n'existe</li>
+                        <li>Une fois qu'un premier prototype fonctionnel existe</li>
+                        <li>Après le déploiement / en conditions réelles</li>
+
+                    </ul>
+                </dd>
+
+
+                <!-- <li>
+                    <b> (1) Approches Heuristiques, Analytiques et Empiriques</b>Pour ça on peut s'appuyer sur des approches heuristiques: c'est à dire l'expérience accumulée collective ou individuelle.
+                    Ou alors sur des approches analytiques, qui consistent à décomposer la situation sous une forme telle qu'on peut répondre à la question par déduction.
+                    Ou alors sur des approches empiriques, basée sur la collecte d'informations empiriques.
+                </li> -->
+                <dt><span>
+                        Comment construire et mettre en oeuvre un protocole?
+                    </span></dt>
+                <dd>
+                    <ul>
+                        <li>Hypothèse et questions de recherche</li>
+                        <li>Dispositif d'observation</li>
+                        <li>Facteurs de contrôle</li>
+                        <li>Traitements et plan d'expérience</li>
+                        <li><a href="#informed-consent">Consentement éclairé</a>
+                        </li>
+                        <li><a href="#recrutement">Stratégie de recrutement</a></li>
+                        <li><a href="">Analyse des données</a></li>
+                    </ul>
+                </dd>
+                <dt><span>
+                        Qu'est-ce qui différencie un bon protocole d'un mauvais?
+                    </span></dt>
+                <dd>
+                    Pour que l'information soit fiable et fasse consensus entre les différentes partie prenantes, l'approche doit être systématique.
+                    Elle doit permettre de démêler ce qui dans les expériences utilisateurs est influencé par les choix de conception, de ce qui est influencé par autre chose.
+                </dd>
+            </dl>
+        </section>
+        <section id="origins-of-usability" title="" class="wrapping-multi-col ">
+            <hgroup>
+                <h2>Aux origines de l'usabilité</h2>
+            </hgroup>
+            <dl>
+                <dt>1939-45</dt>
+            <dd>
+                <p>
+                    Essor de la recherche sur les <i>Facteurs Humains</i> et l'<i>Ergonomie</i> des systèmes technologiques dans l'aéronautique.
+                </p>
+                <figure class="right">
+                    <img src="https://www.aviationmuseum.net/ImageLibrary/Linktrainers/link_t6.jpg" alt="">
+                    <figcaption></figcaption>
+                </figure>
+            </dd>
+            <dt>1977</dt>
+            <dd>Sortie du Commodore PET et du Apple II</dd>
+           
+            <dt>1989</dt>
+            <dd>Le <i>Technology Acceptance Model </i>: Davis théorise que la facilité d'usage et l'utilité sont les principaux prédicteur de l'adoption d'une la technologie</dd>
+            <dt>1993</dt>
+            <dd>Nielsen propose une définition de l'usabilité selon 5 dimensions mesurables.</dd>
+            </dl>
+            
+            <!-- <p class="right">La prise en compte de l'expérience humaine dans la conception de systèmes technologiques remonte aux guerres mondiales.
+                Il fallait entrainer des pilotes d'avion à utiliser des systèmes complexes de navigation et de communication, le plus rapidement possible, en minimisant le risque d'accident</p> -->
+
+            <dl>
+                <dt>
+                    Facilité d’apprentissage
+                </dt>
+                <dd>Le système permet-il aux utilisateurs de réaliser facilement les tâches de base dès leur première utilisation ?</dd>
+                <dt>
+                    Efficacité
+                </dt>
+                <dd>Une fois le design pris en main, les utilisateurs peuvent-ils accomplir leurs tâches rapidement ?</dd>
+                <dt>Mémorabilité</dt>
+                <dd>
+                    Après une période sans utilisation, les utilisateurs retrouvent-ils facilement leurs repères ?
+                </dd>
+                <dt>
+                    Gestion des erreurs
+                </dt>
+                <dd>Les utilisateurs font-ils beaucoup d’erreurs ? Sont-elles graves ? Et peuvent-ils s’en remettre facilement ?</dd>
+                <dt>
+                    Satisfaction
+                </dt>
+                <dd>L’expérience d’utilisation est-elle agréable, fluide, plaisante ?</dd>
+            </dl>
+            <figure>
+                <figcaption>
+                    Temps de complétion de la tâche en fonction du nombre de répétitions de la tâche.
+                </figcaption>
+                <img src="https://media.nngroup.com/media/editor/2016/09/26/chart3.PNG" alt="">
+               
+            </figure>
+        </section>
+        <section class="activity">
+            <h1>Est-ce que toutes les qualités de votre expérience peuvent-être interprétées selon ces termes?</h1>
+        </section>
+        <section id="origins-of-usability" title="" class="wrapping-multi-col ">
+            <hgroup>
+                <h2>Que cherche-t-on à evaluer</h2>
+            </hgroup>
+            <div class="right">
+                <ul>
+                    <li>en amont, si les choix de conceptions auront les conséquences attendues en condition réelless</li>
+                    <li>à se mettre en conformité avec certaines normes de conception</li>
+                    <li>en aval, si les choix de conceptions ont bien eu les conséquences attendues</li>
+
+                    <li>éventuellement, à généraliser les liens de cause à effet entre un choix de conception et un phénomène observé en conditions réelle</li>
+                    <!-- <li>Pour objectiver et justifier (les choix de design) et donc débiaiser</li>
+                   -->
+                </ul>
+                <h3>Au delà de l'évaluation, on cherche à</h3>
+                <ul>
+                    <li>Identifier des questions, problématiques et besoins non anticipées</li>
+                    <li>Comprendre les utilisateurs, découvrir leurs usages, biais et comportements</li>
+                    <li>Découvrir des pistes d'amélioration</li>
+                </ul>
+            </div>
+        </section>
+        <section id="design-cycle" title="" class="wrapping-multi-col ">
+            <hgroup>
+                <h2>Positionnement dans un cycle de design</h2>
+            </hgroup>
+            <figure class="right">
+                <img src="iso13407.png" alt="">
+                <figcaption>Structuration d'un cycle de conception d'après la norme ISO 13407</figcaption>
+            </figure>
+            <figure class="right">
+                <img src="interaction-design-foundation.png" alt="">
+                <figcaption>Structuration d'un cycle de conception d'après la méthode <i>Design Thinking</i></figcaption>
+            </figure>
+           
+
+            <div class="right">
+                <p>
+                    Selon la définition consensuelle, les <i>tests utilisateurs</i> remplissent la fonction <i>Evaluate designs against requirements</i>, ce qui correspond à une démarche dite <strong>validatoire</strong> ou <strong>sommative</strong>.<br>
+                </p>
+                <p>
+                    Les <i>études utilisateurs</i> remplissent la fonction <i>Understand and specify the context of use</i>, ce qui correspond à une démarche dite <strong>exploratoire</strong> ou <strong>formative</strong>
+                </p>
+                <p>
+                    Mais dans la pratique, on fait souvent les deux simultanéments, car on a à la fois des questions ouvertes et des questions fermées
+                </p>
+            </div>
+           
+            <p class='right'>
+                
+            </p>
+            <figure class="right">
+                <img style="border: none" src="cost-of-change.svg" alt="Dessin préliminaire">
+                <figcaption>Cout du changement en fonction de l'avancement d'un projet</figcaption>
+            </figure>
+
+            <!-- <figure display="flex">
+                <table class="full">
+                    <thead>
+                        <tr>
+                            <th>Activités</th>
+                            <th>Résultats d’une conception centrée sur l’opérateur humain</th>
+                            <th>Exemples d’informations contenues dans les résultats</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Comprendre et spécifier le contexte d’utilisation</td>
+                            <td>Description du contexte d’utilisation</td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        Profils des groupes d’utilisateurs
+                                    </li>
+                                    <li>
+
+                                    </li>
+                                </ul><br>
+                                Scénarios en l’état<br>
+                                Personas
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Spécifier les exigences de l’utilisateur</td>
+                            <td>
+                                Description des besoins de l’utilisateur<br>
+                                Spécification des exigences de l’utilisateur
+                            </td>
+                            <td>
+                                — Identification des besoins de l’utilisateur identifiés<br>
+                                — Détermination des exigences de l’utilisateur<br>
+                                — Exigence de recommandations pour la conception
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Produire des solutions de conception visant à satisfaire ces exigences</td>
+                            <td>
+                                Spécification de l’interaction utilisateur-système<br>
+                                Spécification de l’interface utilisateur<br>
+                                Mise en œuvre d’une interface utilisateur
+                            </td>
+                            <td>
+                                — Scénarios d’utilisation<br>
+                                — Prototypes à basse fidélité<br>
+                                — Prototypes à haute fidélité
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Évaluer les conceptions par rapport aux exigences</td>
+                            <td>
+                                Résultats d’évaluation<br>
+                                Résultats d’essai de conformité<br>
+                                Résultats de surveillance à long terme
+                            </td>
+                            <td>
+                                — Rapport d’essai d’utilisabilité<br>
+                                — Rapport de terrain<br>
+                                — Rapport d’étude sur les utilisateurs
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </figure> -->
+
+         
+            <!-- <p class="right">
+                L'évaluation intervient une fois que l'objet existe; alors que la recherche utilisateur peut se faire "avant" que l'objet existe.
+                Il est fréquent de combiner Evaluation et recherche.
+                On peut faire de l'évaluation
+               
+            </p> -->
+            <!-- Mais il y a plein de raisons pour lesquelles un design peut être mauvais
+            <a href="https://uxdesign.cc/why-bad-design-happens-to-good-people-80d02a44800e"></a> -->
+        </section>
+        <section id="heuristiques" title="Heuristiques" class="wrapping-multi-col">
+            <hgroup>
+                <h2>Heuristiques</h2>
+            </hgroup>
+            <div>
+                <p class="right">
+                    Les heuristiques sont des règles ou ensembles de règles, tirées à posteriori de l'expérience - individuelle ou collective qui permettent de <strong>prendre des décisions à partir de connaissances incomplètes.</strong></p>
+                <figure class="right">
+                    <img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*GBf7LzXjgN30O3X4Rdvw3Q.png" alt="">
+                    <figcaption>Comparaison des heuristiques de Bastien & Scapin et de Nielsen
+                        <!-- d'après <a href="https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/6665/iwc19-0225.pdf?sequence=2">Hvannberg et al.</a>, il n'y a pas de diff dans la quantité de problèmes détectés entre Nielsen et Gerhardt-Powals.
+                        D'après Luzzardi 2004, Bastien et Scapin est meilleure que Nielsen -->
+                    </figcaption>
+                </figure>
+
+
+                <p class="right">
+                    <strong>Elaborer des heuristiques à caractère universel est un travail de recherche</strong> à part entière, qui nécessite de passer en revue un grand nombre d'études de cas et travaux antérieurs. En voici quelques unes parmi les plus fréquemments utilisées:
+                </p>
+            </div>
+
+            <dl>
+                <!-- <dt><span>Les 8 règles d'or <br>
+                        de Shneiderman (1987)</span></dt>
+                <dd>
+                    <ol>
+                        <li>
+                            <details>
+                                <summary>Maintenir la cohérence</summary>
+                                <p class="description">
+
+                                </p>
+                            </details>
+                        </li>
+                        <li>Seek universal usability</li>
+                        <li>Offer informative feedback</li>
+                        <li>Design dialogs to yield closure</li>
+                        <li>
+                            <details>
+                                <summary>Prévenir les erreurs</summary>
+                                <p class="description">
+                                    <br>
+                                    <i>Exemple:</i>
+                                </p>
+                            </details>
+
+                        </li>
+
+                        <li>
+                            <details>
+                                <summary>Permettre l'annulation des actions</summary>
+                                <p class="description">
+                                    <br>
+                                    <i>Exemple:</i>
+                                </p>
+                            </details>
+
+                        </li>
+                        <li>
+                            <details>
+                                <summary>Laisser l'utilisateur en contrôle</summary>
+                                <p class="description">
+                                    <br>
+                                    <i>Exemple:</i>
+                                </p>
+                            </details>
+
+                        </li>
+                        <li>
+                            <details>
+                                <summary>Réduire la mémoire à court-terme</summary>
+                                <p class="description">
+                                    <br>
+                                    <i>Exemple:</i>
+                                </p>
+                            </details>
+
+                        </li>
+                    </ol>
+                </dd> -->
+                <dt><span>
+                        <a href="https://www.uxtigers.com/post/usability-heuristics-history">Les 10 heuristiques d'usabilité <br>de Nielsen (1994)</a>
+                    </span></dt>
+                <dd>
+                    <ol>
+                        <li>
+                            <details>
+                                <summary>Rendre le statut visible</summary>
+                                <p class="description">
+                                    Le système doit renseigner l'utilisateur sur son état et sur ses changements d'état.<br>
+                                    <i>Exemple: Bouton non-cliquable doit être grisé</i>
+                                </p>
+                            </details>
+
+                        </li>
+                        <li>
+                            <details>
+                                <summary>Etablir une correspondance entre le système et le monde extérieur</summary>
+                                <p class="description">Le design de l'interface doit reprendre le langage, la logique et les codes du monde "réel"</p>
+                            </details>
+                        </li>
+                        <li>
+                            <details>
+                                <summary>Laisser l'utilisateur libre et en contrôle</summary>
+                                <p class="description">Les utilisateurs doivent pouvoir changer d'avis si ils le souhaitent.<br>
+                                    <i>exemple: Les actions doivent être réversible via un raccourci ou une commande dédiée</i>
+                                </p>
+                            </details>
+                        </li>
+                        <li>
+                            <details>
+                                <summary>Respecter la cohérence et les standards internes et externes</summary>
+                                <p class="description">
+                                    Les mécanismes d'interaction et les codes visuels doivent être cohérents à la fois dans l'application, et vis à vis des conventions de la ou des plateforme sur lesquelles l'application va être utilisée.
+                                </p>
+                            </details>
+                        </li>
+                        <li>
+                            <details>
+                                <summary>Prévenir les erreurs</summary>
+                                <p class="description">Un bon design doit éliminer ou au moins signaler les situations qui prêtent facilement à erreur</p>
+                            </details>
+
+                        </li>
+                        <li>
+                            <details>
+                                <summary> Privilégier la reconnaissance à la remémoration.</summary>
+                                <p class="description">
+
+                                    La reconnaissance désigne notre capacité à identifier un événement ou une information comme étant familiers, alors que le rappel consiste à récupérer une information en mémoire avec peu d'indices.
+                                    <a href="https://www.nngroup.com/articles/recognition-and-recall/">Pour aller plus loin</a>
+                                </p>
+                            </details>
+                        </li>
+                        <li>
+                            <details>
+                                <summary>Flexibilité et efficacité</summary>
+                                <p class="description">
+
+                                    les utilisateurs doivent pouvoir configurer l'interface et ses commandes pour maximiser l'efficacité par rapport à leur niveau d'expertise
+                                </p>
+                            </details>
+                            </li>
+                      
+                        <li>
+                            <details>
+                                <summary>Esthétique et design minimaliste</summary>
+                                <p class="description">
+L'interface ne doit pas contenir d'éléments visuel superflus (qui ne fournissent pas d'information)
+                                </p>
+                            </details></li>
+                        <li>
+                            <details>
+                                <summary>Aider la reconnaissance, le diagnostic et la résolution des erreurs </summary>
+                                <p class="description">
+                                    Les erreurs doivent être signalées via des messages dans un langage compréhensible, qui indiquent la source de l'erreur et les solutions possibles
+                                </p>
+                            </details>
+
+                         
+                        </li>
+                        <li>
+                            <details>
+                                <summary>Aide et documentation</summary>
+                                <p class="description">
+                                    La documentation doit être idéalement inutile, mais toujours disponible, et facile à parcourir.
+                                </p>
+                            </details></li>
+                    </ol>
+                </dd>
+                <dt><span><a href="">Les critères d'ergonomie <br> de Bastien & Scapin (1993)</a></span></dt>
+                <dd>
+                    <ol>
+                        <li>
+                            Guidage
+                            <ul>
+                                <li>
+                                    <details>
+                                        <summary>Prompting</summary>
+                                        <p class="description">
+                                            Le système doit signaler les actions possibles et pertinentes.
+                                        </p>
+                                    </details>
+                                </li>
+                                <li>
+                                    <details>
+                                        <summary>Groupage</summary>
+                                        <p class="description">
+                                            Le design de l'interface doit garantir que l'agencement spatial des éléments reflète leurs relations fonctionnelles, logiques, sémantiques.
+                                        </p>
+                                    </details>
+                                </li>
+                                <li>
+                                    <details>
+                                        <summary>Feedback</summary>
+                                        <p class="description">
+                                            Toute interaction doit fournir un retour sensoriel informatif permettant à l'utilisateur d'en anticiper et comprendre les conséquences
+                                        </p>
+                                    </details>
+
+
+                                </li>
+                                <li>
+                                    <details>
+                                        <summary>Lisibilité</summary>
+                                        <p class="description">
+                                            L'interface doit être organisée de façon à minimiser l'effort de lecture (différentiabilité, mouvement oculaires minimisés)
+                                        </p>
+                                    </details>
+
+                                </li>
+
+                            </ul>
+
+                        </li>
+                        <li>Charge cognitive
+                            <ul>
+                                <li>
+                                    <details>
+                                        <summary>Brièveté</summary>
+                                        <p class="description">
+                                            La navigation et le séquençage des interaction doivent limiter autant que possible le nombre d'étapes à réaliser pour une tâche donnée.
+                                        </p>
+                                    </details>
+                                </li>
+                                <li>
+                                    <details>
+                                        <summary>Densité d'information</summary>
+                                        <p class="description">
+                                            La densité d'information doit être suffisamment élevée pour éviter la navigation inutile, et suffisammet faible pour éviter la surcharge cognitive
+                                        </p>
+                                    </details>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>Controle explicite
+                            <ul>
+                                <li>
+                                    <details>
+                                        <summary>Actions utilisateur explicites</summary>
+                                        <p class="description">
+                                            Le programme ne doit traiter que les actions émises par l'utilisateur, au moment ou elles sont émises.
+                                        </p>
+                                    </details>
+                                </li>
+                                <li>
+                                    <details>
+                                        <summary>Contrôle utilisateur</summary>
+                                        <p class="description">
+                                            A tout moment, l'utilisateur doit être en contrôle du flux des opérations traitées par l'ordinateur, avec la possibilité de les interrompre, les mettre en pause, les reprendre.
+                                        </p>
+                                    </details>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>Adaptabilité</li>
+                        <li>Gestion des erreurs</li>
+                        <li>Cohérence</li>
+                        <li>Compatibilité</li>
+                    </ol>
+
+                </dd>
+                <dt><span>Pour aller plus loin</span></dt>
+                <dd>
+                    <ul>
+                        <li><cite>Principes de l'ingénierie cognitive </cite>de Gerhardt-Powals (1996)</li>
+                        <li><cite>20 Heuristiques d'usabilité</cite> de Weinschenk & Barker (2000)</li>
+                        <li>
+                            <cite>Principes du design d'interaction</cite> de
+                            Bruce Tognazzini (2014)
+                        </li>
+                        <li>
+                            <cite>Principes universels du design</cite> de Lidwell et al.'s (2023)
+                        </li>
+                        <li><cite>8 règles d'or</cite> de Shneiderman (1987)</li>
+                    </ul>
+                </dd>
+
+                <!-- <dt style="color:red">Attention</span></dt>
+                <dd style="color:red">
+                    <p class="right">
+                        Les heuristiques
+                    </p>
+                    <ul class="right">
+                        <li>ne sont pas exhaustives (ne permettent pas de découvrir tous les problèmes)</li>
+                        <li>
+                            ne sont pas toujours compatible les unes avec les autres sans trade-off
+                        </li>
+                        <li>
+                            Fonctionnent <i>via negativa</i>
+                        </li>
+                    </ul>
+                </dd> -->
+
+
+            </dl>
+        </section>
+
+        <section id="approches-analytiques" class="wrapping-multi-col">
+            <hgroup>
+                <h2>Conduire une inspection heuristique</h2>
+            </hgroup>
+            <p class="right">
+                Les heuristiques peuvent être utilisées comme grilles d'analyse pour inspecter un design et en anticiper les défauts en l'absence de données empiriques (tirées de l'observation).
+                Mais cette même grille d'inspection peut être utilisée pour structurer un processus d'observation.
+            </p>
+            <figure class="right">
+                <img src="heuristic-evaluation-sheet.png" alt="">
+                <figcaption>Un modèle de grille d'inspection heuristique standardisée</figcaption>
+            </figure>
+</section>
+        <section class="activity">
+            <h1>Activité</h1>
+            <p>Choisissez une liste d'heuristique, et pour chaque principe, essayez de trouver un exemple de design qui l'implémente.
+                Y a-t'il des situations ou les heuristiques peuvent être incompatibles entre elles?
+            </p>
+        </section>
+        <section id="approches-analytiques" class="wrapping-multi-col">
+            <hgroup>
+                <h2>Approches analytiques</h2>
+            </hgroup>
+            <p class="right">
+                Les approches analytiques reposent sur une modélisation abstraite - souvent avec une dimension mathématique - des facteurs humains.
+                On dispose grâce à des travaux de recherche antérieurs d'estimations sur la durée de différentes opérations motrices, sensorielles ou cognitives susceptible d'intervenir au cours d'une interaction.
+            </p>
+            <div class="left" style="gap: 0">
+                <h3 class="left">Le modèle GOMS</h3>
+                <i>(Goal, Operator, Method, Selection)</i>
+            </div>
+
+            <figure class="right">
+                <img src="goms.jpg" alt="">
+            </figure>
+            <div class="left" style="gap: 0">
+                <h3 class="left">Le KLM</h3>
+                <i>(Keystroke Level Model)</i>
+            </div>
+            <p class="right">
+                Le KLM est l'implémentation la plus ancienne (et aussi la plus basique) du modèle GOMS.
+                Elle est conçue pour modéliser les actions dans un setup desktop basique.
+                Elle a été adaptée pour s'élargir à d'autres modalités d'interaction, par exemple tactile avec le <a href="touch-level-model">Touch Level Model (TLM)</a> 
+            </p>
+            <figure class="right">
+                <img src="cogulator.png" alt="">
+                <figcaption>L'interface de <a href="https://cogulator.io">Cogulator</a>, un logiciel de calcul de temps d'interaction</figcaption>
+            </figure>
+            <table class="full">
+
+                <thead>
+                    <th width="50%">operateur</th>
+                    <th>temps (sec)
+                    </th>
+                </thead>
+                <tbody>
+                  
+                    <tr>
+                        <td>K (Keystroke / button press)</td>
+                        <td>
+                            <p>
+                                .08 (expert)<br>
+                                .25 (moyen)<br>
+                                .75 (code complexe)<br>
+                                1.20 (novice)
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>P (<b><u>P</u></b>ointage)</td>
+                        <td>1.1
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>H (<b><u>H</u></b>oming)</td>
+                        <td>0.4
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>D (<b><u>D</u></b>essin)</td>
+                        <td>.9 x nombre de traits
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>M (opération <b><u>M</u></b>entale)</td>
+                        <td>1.35
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>R (temps de <b>R</b>éponse du système) </td>
+                        <td>dépend du système
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section id="approches-empiriques" class="wrapping-multi-col">
+            <hgroup>
+                <h2>Approches empiriques</h2>
+            </hgroup>
+            <div>
+                <p class="right">
+                    Une approche empirique consiste à répondre à une question <mark>en s'appuyant sur des données observées, en s'assurant que ces observations fournissent une image fidèle de la réalité</mark>.
+                    Voici quelques exemples:
+                </p>
+
+                <ul class="right">
+                    <li>
+                        Ou est-ce que les utilisateurs font le plus d'erreurs?
+                    </li>
+                    <li>
+                        Est-ce que l'interface favorise l'apprentissage de telle ou telle compétence?
+                    </li>
+                    <li>
+                        Entre deux versions d'une interface, laquelle demande moins d'effort à utiliser?
+                    </li>
+                    <li>
+                        Y-a t'il des fonctionnalités du système que les utilisateurs n'utilisent pas ou peu?
+                    </li>
+                </ul>
+
+                <p class="right">
+                    Selon les ressources dont on dispose et les objectifs, plusieurs approches sont possibles.
+                </p>
+            </div>
+
+            <p class="right">Adopter une approche empirique impose de définir un protocole, c'est à dire une façon systématique de collecter les observations qui permettent de répondre à la question. <br>
+            Définir un protocole nécessite de spécifier les éléments suivants:</p>
+            <dl>
+                <dt>Hypothèses et questions de recherche</dt>
+                <dd>Est-ce que je cherche à répondre à des question ouvertes, fermées, les deux?</dd>
+                <dt>Instructions, interventions et stimuli</dt>
+                <dd>Quelle intervention puis-je faire en tant qu'expérimentateur pour déclencher les observations </dd>
+                <dt>Traces d'observation</dt>
+                <dd>Quelle trace de l'expérience persiste? de quel dipositif ais-je besoin pour enregistrer ces traces ?</dd>
+                
+                <dt>Facteurs de contrôle</dt>
+                <dd>Y-a t'il des facteurs connus (autres que les choix de conception de mon système interactif) qui peuvent influencer les observations?</dd>
+                <dt>Traitements et plan d'expérience</dt>
+                
+                <dt><a href="#informed-consent">Consentement éclairé</a>
+                </dt>
+                <dt><a href="#recrutement">Stratégie de recrutement</a></dt>
+                <dt><a href="">Analyse des données</a></dt>
+            </dl>
+        </section>
+
+        <section id="traces" title="" class=" wrapping-multi-col ">
+            <hgroup>
+                <h2>Collecte et traitement des données d'observation</h2>
+            </hgroup>
+            <div class="right">
+                <p>Par "trace", on désigne tout ce qui persiste de façon objective une fois que l'expérience est terminée.
+                </p>
+                <ul>
+                    <li>Sketch-noting</li>
+                    <li>Transcript écrit</li>
+                    <li>Enregistrement audio/video</li>
+                    <li>Image</li>
+                    <li>Réponse à des questionnaires</li>
+                    <li>Trace d'évènements logiciels</li>
+                    <li>Données physiologiques</li>
+                </ul>
+                
+            </div>
+            <figure class="right">
+                <img src="behavioural-attitudinal.png" alt="">
+                <figcaption>Classification des principales méthodes de recherche empirique</figcaption>
+            </figure>
+        </section>
+        <section id="observations" class="wrapping-multi-col ">
+            <hgroup>
+                <h2>Collecte et traitement des données d'observations</h2>
+            </hgroup>
+            <dl>
+                <!-- <dt><span><a href="https://docs.google.com/spreadsheets/d/130xHdSknlDauKF7NEoLy1WphPJIYFGf-t9NNakEuzOM/edit?usp=sharing">Modèle de tableur pour l'inspection heuristique</a></span></dt>
+                <dt><span><a href="https://media.nngroup.com/media/articles/attachments/Heuristic_Evaluation_Workbook_1_Fillable.pdf">Fiche d'évaluation Heuristique de Nielsen</a></span> </dt>
+           -->
+                <dt><span>Analyse de Clickstream</span></dt>
+                <dd>Analyse de Clickstream <br>
+                    <figure>
+                        <figcaption>
+                            Visualisation en Diagramme de Sankey de données collectées avec <a href="https://doc.retentioneering.com/stable/doc/index.html">Retentioneering
+                            </a>
+                        </figcaption>
+                    </figure>
+                    <div style="width: 100%; aspect-ratio: 1.77;  overflow-x: scroll; background-color: white;">
+                        <iframe style="width:1200; height:500; transform-origin: center center; scale:0.8; object-fit: cover;" src="https://doc.retentioneering.com/stable/doc/_static/user_guides/step_sankey/basic_step_sankey.html" frameborder="0"></iframe>
+                    </div>
+                    
+
+                </dd>
+                <dt>
+                    Eye-tracking et occulometrie
+                </dt>
+                <dd>
+                    <figure>
+                        <img src="occulometrie.png" alt="">
+                        <figcaption>Evaluation du e-book <cite>Mon Voisin</cite> (Esposito 2015)</figcaption>
+                    </figure>
+                </dd>
+                <dt><span><a href="https://developer.chrome.com/docs/devtools/recorder">Chrome Recorder</a></span></dt>
+                <dd>
+                    <figure>
+                        <img src="https://developer.chrome.com/static/docs/devtools/recorder/image/steps-the-recorder-panel-0fa9476dc87ad_1920.png" alt="">
+                    </figure>
+                </dd>
+                <dt><span>Galvanic Skin Response (GSR)</span></dt>
+                <dd>
+                    <figure><img src="https://connect.tobii.com/servlet/rtaImage?eid=ka34v000000oMMd&feoid=00Na000000B2Ud6&refid=0EM4v000003sIx4" alt="">
+                    <figcaption>Enregistrement réalisé à l'aide de <a href="https://connect.tobii.com/s/article/galvanic-skin-response-gsr?language=en_US">Tobii GSR</a></figcaption></figure>
+                </dd>
+                <dt><span>Reconnaissance Faciale d'Emotions</span></dt>
+                <dd>
+                    <figure><img src="tobii-emotions.jpeg" alt=""><figcaption><a href="https://connect.tobii.com/s/article/Sticky-Emotion-Analysis?language=en_US">Tobii Emotion Tracking</a></figcaption></figure>
+                </dd>
+                <!-- <dt><span>
+                        <a href="https://datatab.net">Datatab</a>
+                    </span></dt>
+                <dd>Outil d'analyse statistique <br>
+                    <figure><img src="datatab.png" alt=""></figure>
+                </dd> -->
+
+                <dt><span><a href="https://mouseflow.com/pricing/">MouseFlow</a></span></dt>
+                <dd></dd>
+            </dl>
+        </section>
+
+        <section id="5-second-test" title="" class=" wrapping-multi-col ">
+            <hgroup>
+                <h2>Test des 5 secondes</h2>
+            </hgroup>
+
+            <div class="right" style="width: 100%;">
+                <p class="right">
+                    Le test des 5 secondes sert à desamorcer les problèmes qui surviennent dans les tous premiers instants d'une expérience utilisateur.
+                </p>
+
+
+
+            </div>
+            <iframe class="full" style="width:100%; height:100%" class="sl-demo" src="https://app.storylane.io/demo/lzjlftyfuull?embed=inline" name="sl-embed" allow="fullscreen" allowfullscreen="" style="position:absolute;top:0;left:0;width:100%!important;height:100%!important;border:1px solid rgba(63,95,172,0.35);box-shadow:0px 0px 18px rgba(26, 19, 72, 0.15);box-sizing:border-box" width="100%" height="100%"></iframe>
+            
+            <dl>
+                <dt>Protocole de test</dt>
+                <dd>
+                    <table>
+                        <thead>
+                            <th>Étape</th>
+                            <th>Durée</th>
+                            <th>Traces</th>
+                            <th>Analyse</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    Examiner l'interface
+                                </td>
+                                <td>
+                                    5s
+                                </td>
+                                <td>
+                                    Enregistrement occulométrique (optionnel)
+                                </td>
+                                <td>Diverses statistiques spatiales et temporelles <br>Analyse visuelle de patterns</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Questionnaire ouvert
+                                </td>
+                                <td>
+                                    4min
+                                </td>
+                                <td>Réponses libres</td>
+                                <td>Analyse de sentiment / thématique / lexicale <br>
+                                Scoring par exactitude</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </dd>
+                <dt>Questions typiques</dt>
+                <dd>
+                    <ul>
+                        <li>Qu'avez-vous retenu de cette page/ce design après l'avoir vu pendant 5 secondes ?</li>
+                        <li>Qu'est-ce qui vous a le plus marqué ?</li>
+                        <li>Pouvez-vous décrire ce que vous avez vu ?</li>
+                        <li>Qu'est-ce qui vous semble être l'objectif principal de ce design ?</li>
+                        <li>Qu'avez-vous trouvé facile ou difficile à comprendre sur cette page/ce design ?</li>
+                        <li>Est-ce que quelque chose vous a dérangé ou vous a semblé peu clair ?</li>
+                      </ul>
+                </dd>
+                <dt></dt>
+                <dd>
+                    <!-- Tutoriel vidéo (2 interfaces ×4 tasks ×20sec)
+                    Ordre des taches déterminé avec un balanced latin square
+                    interface avec 2 modalités, within subjects, contrebalancées -->
+                </dd>
+            </dl>
+
+
+
+        </section>
+        <section id="example-fatsecret" title="" class=" wrapping-multi-col ">
+            <hgroup>
+                <h2>Test d'usabilité simple</h2>
+            </hgroup>
+            <h3 class="left">Exemple :</h3>
+            <span class="right" style="align-self: center;"> <a href="https://medium.com/@hustlebass/usability-testing-case-study-for-health-fitness-app-24613911efc6">FatSecret</a> </span>
+            <figure class="right">
+                <img src="fatsecret.gif" alt="">
+            </figure>
+            <dl>
+                <dt>Protocole de test</dt>
+                <dd>
+                    <table>
+                        <thead>
+                            <th>Étape</th>
+                            <th>Durée</th>
+                            <th>Traces</th>
+                            <th>Analyse</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Questionnaire pré-test</td>
+                                <td>2 min</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Tâche 1
+                                </td>
+                                <td>
+                                    Non renseigné 
+                                </td>
+                                <td>
+                                    Bounce, Misclick, Durée, Réussite
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Questionnaire post-tâche (<a href="#seq">SEQ</a>)
+                                </td>
+                                <td>
+                                    2min
+                                </td>
+                                <td>
+                                    Réponses du participant
+                                </td>
+                                <td>
+                                  
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Tâche 2
+                                </td>
+                                <td>
+                                    Non renseigné 
+                                </td>
+                                <td>
+                                    Bounce, Misclick, Durée, Réussite
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Questionnaire post-tâche (<a href="#seq">SEQ</a>)
+                                </td>
+                                <td>
+                                    2min
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Tâche 3
+                                </td>
+                                <td>
+                                    Non renseigné 
+                                </td>
+                                <td>
+                                    Bounce, Misclick, Durée, Réussite
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Questionnaire post-tâche (<a href="#seq">SEQ</a>)
+                                </td>
+                                <td>
+                                    2min
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </dd>
+            </dl>
+            <div class="carrousel-container">
+                <div class="carrousel" style="height: inherit;   width: 166%">
+                    <div style="width: 60%;"></div>
+
+                    <div style="width: 40%">
+                        <a href="">Usability testing for FatSecret</a>
+                        Unmoderated
+                        Données: SEQ, bounce, misclick, durée, taux de réussite.
+                        1 facteur (état de l'interface).
+                        1 scenario à 3 tâches, 1 scenario à 4 taches, 1 SEQ après chaque tâche.
+                        Problème: groupes pas de la même taille.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="example-textoshop" title="" class=" wrapping-multi-col ">
+            <hgroup>
+                <h2>Exemple d'étude controlée: Textoshop</h2>
+            </hgroup>
+
+            <div class="right" style="width: 100%;">
+                <p class="right">
+                    TextoShop est un éditeur de texte qui s'inspire du workflow des environnements d'édition d'images vectorielles
+                </p>
+            </div>
+            <dl>
+                <dt>Participants</dt>
+                <dd>12</dd>
+                <dt>Protocole de test</dt>
+                <dd>
+                    <table>
+                        <thead>
+                            <th>Étape</th>
+                            <th>Durée</th>
+                            <th>Traces</th>
+                            <th>Analyse</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Questionnaire pré-test</td>
+                                <td>2 min</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Tutoriel vidéo
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    4 tâches avec l'interface 1
+                                </td>
+                                <td>
+                                    4min
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Questionnaire post-tâche (<a href="sus">SUS</a>)
+                                </td>
+                                <td>
+                                    2min
+                                </td>
+                                <td>
+                                    Réponses du participant
+                                </td>
+                                <td>
+                                  Scoring selon les instructions du <a href="sus">SUS</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    4 tâches avec l'interface 2
+                                </td>
+                                <td>
+                                    4min
+                                </td>
+                                <td>
+                                   
+                                </td>
+                                <td>
+                                 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Questionnaire post-tâche (<a href="sus">SUS</a>)
+                                </td>
+                                <td>
+                                    2min
+                                </td>
+                                <td>
+                                    Réponses du participant
+                                </td>
+                                <td>
+                                  Scoring selon les instructions du <a href="sus">SUS</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Exploration libre
+                                </td>
+                                <td>10 min</td>
+                                <td>Log des actions utilisateur</td>
+                                <td>Analyse thématique <br> Inspection visuelle</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Interview semi-structuré
+                                </td>
+                                <td>
+                                    10 min
+                                </td>
+                                <td>Transcript des interviews</td>
+                                <td>Analyse thématique</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </dd>
+                <dt></dt>
+                <dd>
+                    <!-- Tutoriel vidéo (2 interfaces ×4 tasks ×20sec)
+                    Ordre des taches déterminé avec un balanced latin square
+                    interface avec 2 modalités, within subjects, contrebalancées -->
+                </dd>
+            </dl>
+
+
+
+        </section>
+        <!-- <section id="example-stickylines" title="" class=" wrapping-multi-col ">
+            <hgroup>
+                <h2>Exemple d'étude: StickyLines</h2>
+
+            </hgroup>
+
+            <div class="right" style="width: 100%;">
+                <p class="right">
+                    StickyLines est une technique d'interaction conçue pour faciliter l'alignement de formes géométriques dans les environnements de dessin vectoriel
+                </p>
+                <iframe style="width:100%; aspect-ratio: 1.77;" src="https://www.youtube.com/embed/jIDDWJ1xptE?si=uqMawQ5NJ5Tw7J5Z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <dl>
+                <dt>
+                    Participants
+                </dt>
+                <dd>12</dd>
+                <dt>Protocole</dt>
+                <dd>
+                    <table>
+                        <thead>
+                            <th>Étape</th>
+                            <th>Durée</th>
+                            <th>Traces</th>
+                            <th>Analyse</th>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                    2 facteurs (difficulté de la tâche, technique utilisée), variation within subject avec counter-balancing.6 easy layouts, 6 hard layouts.
+                    12 trials.
+                </dd>
+            </dl>
+        </section> -->
+        <section id="example-facebook" title="" class=" wrapping-multi-col ">
+            <hgroup>
+                <h2>Exemple d'étude: Facebook</h2>
+            </hgroup>
+            <p class="right">
+                Em 2014 facebook réalise <a href="https://www.pnas.org/doi/10.1073/pnas.1320040111">une étude</a> auprès de 680000 utilisateurs, dont le fil d'actualité est manipulé délibérément pour tenter de caractériser l'impact de l'exposition à des contenus négatifs sur la posititivé ou la négativité de l'activité en ligne des utilisateurs du réseau.
+            </p>
+            <figure class="right">
+                <img src="facebook-feed-manipulation.jpeg" alt="">
+                <figcaption></figcaption>
+            </figure>
+            <dl>
+                <dt>
+                    Participants
+                </dt>
+                <dd>680000</dd>
+                <dt>Protocole</dt>
+                <dd>
+                    <table>
+                        <thead>
+                            <th>Étape</th>
+                            <th>Durée</th>
+                            <th>Traces</th>
+                            <th>Analyse</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td>1 semaine</td>
+                                <td>Historique d'activité des utilisateurs</td>
+                                <td>Analyse de sentiment ( Linguistic Inquiry and Word Count software) </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                </dd>
+            </dl>
+        </section>
+
+        <!-- <section id="example-satzinger" title="" class=" wrapping-multi-col ">
+            <hgroup>
+                <h2>Exemple d'étude: Satzinger et al</h2>
+            </hgroup>
+            <div style="width: 40%;">
+                <b><i>Satzinger et al, 1998</i></b><br>
+                <b>Question</b><br>
+                Est-ce que la cohérence des attributs clefs d'une interface que sont la syntaxe d'action et l'apparence visuelle affectent la performance lors de l'apprentissage d'une nouvelle interface? <br>
+                <b>Cohorte</b><br>
+                114 participants <br>
+                <b>Facteurs</b><br>
+                2 facteurs à 2 modalités, soit 4 traitement possible.
+            </div>
+        </section> -->
+
+        <!-- <section id="exemples" class=" wrapping-multi-col ">
+            <hgroup>
+                <h2>Exemples</h2>
+            </hgroup>
+            <div>
+                <p>Exemples</p>
+                <ul>
+
+                    <li>
+                        Meetup app, 7 participants, 4 taches
+                        <a href="https://uxdesign.cc/meetup-a-usability-case-study-e909c33f1e3e?">lien</a>
+                    </li>
+                </ul>
+            </div>
+        </section> -->
+
+
+
+        <section id="informed-consent" class=" wrapping-multi-col ">
+            <hgroup>
+                <h2>Consentement informé</h2>
+            </hgroup>
+            <div>
+                <p class="right">
+                    D'une certaine manière la user research a ceci de commun avec la recherche pharmaceutique que l'on a affaire à des sujets humains, donc il y a des règles d'éthique à suivre.
+                    <br>
+                    L'utilisateur doit pouvoir donner son consentement en toute connaissance de cause et le rétracter à tout moment.
+                </p>
+            </div>
+            <iframe class="full" style="width: 100%; aspect-ratio: 1.77" src="https://hci-studies.org/informed-consent-generator/" frameborder="0"></iframe>
+            <iframe class="full" style="width: 100%; aspect-ratio: 1.77" src="https://sven-mayer.com/informed-consent-generator/"" frameborder="0"></iframe>
+        </section>
+
+        <section id="recrutement" title="" class=" wrapping-multi-col ">
+            <hgroup>
+                <h2>Stratégies de recrutement</h2>
+            </hgroup>
+            <div>
+                <ul class="mosaic right">
+                    <li>
+                        <div>
+                            <img src="quota-sampling.png" alt="">
+                            <figcaption>Echantillonage par quota</figcaption>
+                        </div>
+                       
+                        <!-- Dans l'échantillonage par quota, on cherche à avoir un assortiment de personne représentatives de statistiques démographiques connues.
+                        Par exemple si il y a 10% de gauchers dans la population on veut 10% de gauchers dans notre participant. -->
+                    </li>
+                    <li>
+                        <div>
+                            <img src="snowball-sampling.png" alt="">
+                            <figcaption>Echantillonage boule de neige</figcaption>
+                        </div>
+                        <!-- Echantillonage boule de neige.
+                        Cela consiste à demander aux personnes qui acceptent de participer à l'étude de recommander à d'autres personnes de participer. Cela est utile quand on cible une population qui n'est pas aisément identifiable via un annuaire. -->
+                    </li>
+                    <li>
+                        <div>
+                            <img src="targetted-sampling.png" alt="">
+                            <figcaption>Echantillonage ciblé ou raisonné</figcaption>
+                        </div>
+                        
+                        <!-- L'échantillonage ciblé consiste à décider du recrutement d'une personne sur la base d'une hypothèse quant à l'importance des insights qu'elle pourrait apporter. -->
+                    </li>
+                    <li>
+                        <div>
+                            <img src="targetted-sampling.png" alt="">
+                            <figcaption> Echantillonage de convenance</figcaption>
+                        </div>
+                        <!-- image source : https://www.fynzo.com/blog/types-of-sampling/#elementor-toc__heading-anchor-9 -->
+                       
+                        <!-- L'echantillonage de convenance consiste à recruter les personnes par facilité: les plus proches, les plus disponibles. -->
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="recrutement" title="" class=" wrapping-multi-col activity">
+            <h1>Activité</h1>
+            <p>Identifiez quelle stratégie de recrutement serait justifiée pour votre expérience</p>
+        </section>
+
+
+        <section id="tasks-and-scenarios" class=" wrapping-multi-col ">
+            <hgroup>
+                <h2>Tâches et Scénarios</h2>
+            </hgroup>
+            <div class="right">
+                Quelles situations sont le plus susceptibles de fournir les observations qui permettront de répondre à la question qu'on se pose?
+
+                L'ensemble des caractéristiques de la situation que l'on contrôle, on appelle ça des facteurs.
+                Un facteur peut avoir plusieurs niveaux ou modalités.
+                Un traitement c'est un choix de modalité pour chacun des facteurs
+
+            </div>
+        </section>
+        <section class=" wrapping-multi-col " id="questionnaires">
+            <hgroup>
+                <h2>Questionnaires et échelles</h2>
+            </hgroup>
+            <div class="right">
+                <ul>
+                    <li>Echelle Sémantique Différentielle</li>
+                    <li>Echelle de Likert</li>
+                </ul>
+                <img src="https://www.researchgate.net/profile/A-Peter-Mcgraw/publication/45951947/figure/fig4/AS:667096295960578@1536059559090/Scales-used-in-Studies-1-through-3-The-bipolar-response-scale-a-was-used-in-all-three_W640.jpg" alt="">
+
+            </div>
+
+        </section>
+        <section class=" wrapping-multi-col " id="questionnaires">
+            <hgroup>
+                <h2>Quelques exemples de questionnaires standardisés</h2>
+            </hgroup>
+            <h3 class="right">Questionnaires courts</h3>
+            <dl>
+
+                <dt><span id="seq">Single Ease Question (SEQ) <br>[Brooke 1996]</span></dt>
+                <dd>Mesure la difficulté ressentie d'une tâche sur une échelle Likert  à 1 item et 7 points</dd>
+                <dt>
+                    Questionnaires d'expérience client
+                </dt>
+                <dd>
+                    <figure>
+                        <img src="https://www.revos.ai/img/blog/csat-ces-nps-measure.png" alt="">
+                    </figure>
+                </dd>
+                <dt><span>Self-Assessment Manikin questionnaire (SAM) <br>[Bradley 1994]</span></dt>
+                <dd>Evalue la réponse émotionelle à un stimulus ou une expérience sensorielle donnée. <a href="http://irtel.uni-mannheim.de/pxlab/demos/index_SAM.html" rel="nofollow">Cette version</a> est utilisée ici.</dd>
+            </dl>
+           
+            <h3 class="right">Questionnaires d'usabilité et assimilés</h3>
+            <dl>
+                <dt><span id="sus">System Usability Scale (SUS) <br>[Brooke 1996]</span></dt>
+                <dd>
+                    <details>
+                        <summary>Évalue l'utilisabilité d'un système.
+                            Echelle Likert  à 10 items à 5 points.
+                            <!-- <a href="https://fabrique-formations.univ-lille.fr/fileadmin/user_upload/learning-fab/Documents/Echelles_REFA/Ergonomie/SUS_GRONIER_BAUDET_2021.pdf">lien</a> -->
+                        </summary>
+                        <div class="description">
+                            <table>
+                                <tbody><tr>
+                                <th colspan="3" style="text-align:right;">Strongly<br>disagree</th>
+                                <th colspan="3">
+                                </th>
+                                <th colspan="2" style="text-align:left;">Strongly<br>agree
+                                </th></tr>
+                                <tr>
+                                <th colspan="2"></th>
+                                <th>&nbsp;1</th>
+                                <th>&nbsp;2</th>
+                                <th>&nbsp;3</th>
+                                <th>&nbsp;4</th>
+                                <th>&nbsp;5
+                                </th></tr>
+                                <tr>
+                                <td>1.</td>
+                                <td>I think that I would like to use this system frequently.</td>
+                                <td>◯</td>
+                                <td>◯</td>
+                                <td>◯</td>
+                                <td>✗</td>
+                                <td>◯
+                                </td></tr>
+                                <tr>
+                                <td>2.</td>
+                                <td>I found the system unnecessarily complex.</td>
+                                <td>◯</td>
+                                <td>◯</td>
+                                <td>◯</td>
+                                <td>◯</td>
+                                <td>✗
+                                </td></tr>
+                                <tr>
+                                <td>3.</td>
+                                <td>I thought the system was easy to use.</td>
+                                <td>✗</td>
+                                <td>◯</td>
+                                <td>◯</td>
+                                <td>◯</td>
+                                <td>◯
+                                </td></tr>
+                                <tr>
+                                <td>4.</td>
+                                <td>I think that I would need the support of a technical person to be able to use this system.</td>
+                                <td>◯</td>
+                                <td>◯</td>
+                                <td>◯</td>
+                                <td>◯</td>
+                                <td>✗</td>
+                                <td>
+                                </td></tr>
+                                <tr>
+                                <td>5.</td>
+                                <td>I found the various functions in this system were well integrated.</td>
+                                <td>◯</td>
+                                <td>◯</td>
+                                <td>◯</td>
+                                <td>✗</td>
+                                <td>◯
+                                </td></tr>
+                                <tr>
+                                <td>6.</td>
+                                <td>I thought there was too much inconsistency in this system.</td>
+                                <td>◯</td>
+                                <td>✗</td>
+                                <td>◯</td>
+                                <td>◯</td>
+                                <td>◯
+                                </td></tr>
+                                <tr>
+                                <td>7.</td>
+                                <td>I would imagine that most people would learn to use this system very quickly.</td>
+                                <td>◯</td>
+                                <td>◯</td>
+                                <td>✗</td>
+                                <td>◯</td>
+                                <td>◯
+                                </td></tr>
+                                <tr>
+                                <td>8.</td>
+                                <td>I found the system very cumbersome to use.</td>
+                                <td>◯</td>
+                                <td>◯</td>
+                                <td>✗</td>
+                                <td>◯</td>
+                                <td>◯
+                                </td></tr>
+                                <tr>
+                                <td>9.</td>
+                                <td>I felt very confident using the system.</td>
+                                <td>◯</td>
+                                <td>◯</td>
+                                <td>✗</td>
+                                <td>◯</td>
+                                <td>◯
+                                </td></tr>
+                                <tr>
+                                <td>10.</td>
+                                <td>I needed to learn a lot of things before I could get going with this system.</td>
+                                <td>◯</td>
+                                <td>◯</td>
+                                <td>◯</td>
+                                <td>✗</td>
+                                <td>◯
+                                </td></tr>
+                                <tr>
+                                <td colspan="7" style="font-size:110%;padding-top:1ex;">Standard version of the system usability scale
+                                </td></tr></tbody></table>
+                        </div>
+                           
+                    </details>
+                </dd>
+
+                <dt><span>NASA Task Load Index (NASA-TLX) <br>[Hart et Staveland 1988]</span></dt>
+                <dd>Évalue la charge de travail mentale et physique ressentie.
+                    <br>
+                    1 échelle Likert à 6 items à 7 points
+                    1 questionnaire de pondération comparative
+                </dd>
+
+                <dt><span>User Experience Questionnaire (UEQ) <br>
+                    [Laugwitz 2008, Schrepp et al. 2017]</span></dt>
+                <dd>Echelle Sémantique Différentielle (⚠️)
+                    <br>
+                    26 items et 7 points. <a href="https://www.ueq-online.org/" rel="nofollow">lien</a>.
+                    <details>
+                        <summary>Évalue l'utilisabilité d'un système.
+                            Echelle Likert  à 10 items à 5 points.
+                            <!-- <a href="https://fabrique-formations.univ-lille.fr/fileadmin/user_upload/learning-fab/Documents/Echelles_REFA/Ergonomie/SUS_GRONIER_BAUDET_2021.pdf">lien</a> -->
+                        </summary>
+                        <div class="description">
+                            <iframe src="https://www.ueq-online.org/" style="width: 100%; aspect-ratio:1.77"></iframe>
+                        </div>
+                    </details>
+                </dd>
+                <dt><span>AttrakDiff <br>[Hassenzahl et al. 2003]</span></dt>
+                <dd>
+                    Evalue l'attractivité d'un système. <a href="http://www.attrakdiff.de/" rel="nofollow">Attrakdiff3</a> est utilisé ici.
+                    <br>Echelle Sémantique Différentielle (⚠️) à 4x7 items et 7 points
+                </dd>
+                <dt><span>meCUE <br></span></dt>
+                <dd>
+                   
+                </dd>
+            </dl>
+            <h3 class="right">Questionnaires de présence et d'immersion</h3>
+            <dl>
+                <dt><span>Igroup Presence Questionnaire (IPQ) <br>[Schubert et al. 2001]</span></dt>
+                <dd>Évalue la sensation de présence ressentie dans un environnement virtuel. Le questionnaire est disponible sur <a href="https://www.igroup.org/pq/ipq/ipq_english.htm" rel="nofollow">cette page</a>.</dd>
+
+                <dt><span>Presence Questionnaire (PQ) <br>[Witmer 1998]</span></dt>
+                <dd>Évalue la sensation de présence ressentie dans un environnement virtuel.
+                    <br>
+                    Echelle adjectivale bipolaire à 24 items x 7 niveaux
+                    <br>
+                    <a href="https://marketinginvolvement.wordpress.com/wp-content/uploads/2013/12/pq-presence-questionnaire.pdf">Version française avec instructions de notations</a>
+
+                </dd>
+
+                <dt><span>Immersive Tendencies Questionnaire (ITQ) <br>[Witmer 1998]</span></dt>
+                <dd>Evalue la prédisposition des individus à la sensation de présence dans les environnements virtuels
+                    <br>
+                    Echelle Likert mixte avec 6 items à 7 points
+                </dd>
+
+                <dt><span>Slater-Usoh-Steed questionnaire (SUS) <br>[Usoh et al. 2000]</span></dt>
+                <dd>Mesure la présence dans un environnement virtuel.
+                    <br> 6 Likert Items à 7 points
+                </dd>
+            </dl>
+            <h3 class="right">Questionnaires de Motion Sickness et Cyber Sickness (VRSQ, SSQ...)<a href="https://dl.acm.org/doi/10.1145/3670008"></a></h3>
+            <dt><span></span></dt>
+            <dd></dd>
+            <h3 class="right">Questionnaires de Flow et d'expérience vidéoludique</h3>
+            <dl>
+                <dt><span>Game Experience Questionnaire (GEQ) <br>[Poels et al. 2007]</span></dt>
+                <dd>Evalue  l'expérience de jeu. 
+                    <!-- Notez qu'il existe différentes versions du GEQ et que la structure factorielle du GEQ pourrait ne pas être stable [Law et al. 2018]—veuillez être prudent lors de son application. Nous avons utilisé la version originale avec 42 items ici.  -->
+                    <a href="https://pure.tue.nl/ws/files/21666907/Game_Experience_Questionnaire_English.pdf">lien</a></dd>
+
+                <dt><span>Flow Short State (FSS) <br>[Jackson et Marsh, 1996]</span></dt>
+                <dd>Mesure les aspects induisant le flow dans le gameplay. La version longue (Flow State Scale) peut être trouvée dans ce travail.</dd>
+
+                
+
+    
+            </dl>
+
+        </section>
+        <section class=" wrapping-multi-col " id="questionnaire-design">
+            <hgroup>
+                <h2>Concevoir un questionnaire</h2>
+            </hgroup>
+            <div class="right">
+                <p>Est-ce que le questionnaire est post-test ou post-tâche</p>
+                <p>
+                    Éviter les échelles Semantique différentielle
+                    Echelles de Likert.
+                    Utilisez
+                </p>
+
+            </div>
+
+        </section>
+        <section class=" wrapping-multi-col " id="questionnaire-design">
+            <hgroup>
+                <h2>Analyse de données</h2>
+            </hgroup>
+            <figure style="display: block; grid-column: 1 / span 2;">
+                <table>
+                    <thead>
+                        <td>Echelle</td>
+                        <td>Caractéristique</td>
+                        <td>Opérations empiriques élémentaires</td>
+                        <td>Statistiques autorisées</td>
+                        <td>Exemples</td>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Nominale</td>
+                            <td>Assigne des catégories / labels aux variables</td>
+                            <td>Egalité</td>
+                            <td>Fréquence</td>
+                            <td>Groupe sanguin, genre, gaucher ou droitier</td>
+                        </tr>
+                        <tr>
+                            <td>Ordinale</td>
+                            <td>Définit un ordre entre catégories</td>
+                            <td>Comparaison</td>
+                            <td>Fréquence, Médiane</td>
+                            <td>Niveau d'expérience dans un domaine, degré de satisfaction</td>
+                        </tr>
+                        <tr>
+                            <td>Intervalle</td>
+                            <td>Définit une notion de distance</td>
+                            <td></td>
+                            <td>Fréquence, Médiane, Moyenne</td>
+                            <td>Date et heure, coordonnée GPS, Score Elo</td>
+                        </tr>
+                        <tr>
+                            <td>Ratio</td>
+                            <td>A un zero absolu non-arbitraire</td>
+                            <td></td>
+                            <td>Fréquence, Médiane, Moyenne</td>
+                            <td>Temps de réaction, temps de complétion d'une tâche, nombre d'erreurs, rythme cardiaque, distance par rapport à l'écran, taux de "recall"</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <figcaption>d'après <a href="#stanley1958">Stanley (1958)</a></figcaption>
+            </figure>
+
+        </section>
+       
+
+        <section id="section1" title="Section 1" class=" wrapping-multi-col ">
+            <hgroup>
+                <h2>Section 1</h2>
+            </hgroup>
+            <div>
+                <p>Le protocole peut être
+                </p>
+                <ul>
+                    <li>Avec un scenario structuré. Auquel cas spécifier la ou les tâches.</li>
+                    <li>Stimulus. Modalités du stimulus. Trace. Métrique</li>
+                    <li>Avec un scenario ouvert</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- <section class="wrapping-multi-col " id="exemples">
+            <hgroup>
+                <h2>Exemples</h2>
+            </hgroup>
+            <div>
+
+                <a href="https://maze.co/guides/usability-testing/examples/">Quelques cases study ici</a>
+                <a href="https://userresearch.blog.gov.uk/category/casestudies/">Des cases study du gouvernement britanniques ici</a>
+
+            </div>
+
+        </section> -->
+
+        <section class="wrapping-multi-col " id="biais">
+            <hgroup>
+                <h2>Biais cognitifs et méthodologiques</h2>
+            </hgroup>
+            <dl>
+                <dt><span>Biais de confirmation</span></dt>
+                <dd>Tendance à rechercher exclusivement des informations qui confirment des croyances ou hypothèses préexistantes</dd>
+
+                <dt><span>Biais de faux consensus</span></dt>
+                <dd>Tendance à considérer ses propres habitudes comme étant représentatives de la norme.</dd>
+                <dt><span></span></dt>
+
+                <dt><span>Biais de congruence</span></dt>
+                <dd>C'est lorsque l'on teste uniquement une seule hypothèse.</dd>
+
+                <dt><span>Biais du survivant</span></dt>
+
+                <dd></dd>
+            </dl>
+            <hr>
+            <dl>
+                <dt><span>Effet Pic-Fin</span></dt>
+                <dd>Tendance à juger une expérience en fonction du ressenti à son apogée et à sa fin, plutôt que sur l'expérience dans son ensemble.
+                    <br>
+                    <b>Survient </b>dans les questionnaires / interviews post-test; dans les sondages;
+                    <br>
+                    <b>Solutions</b>: Questionnaires post-tâche; croisement avec d'autres données comportementales.
+                </dd>
+
+                <dt><span>Biais de négativité</span></dt>
+                <dd>Tendance à accorder plus d'importance aux expériences négatives qu'aux expériences neutres ou positives.
+                    Survient dans les interviews ouvertes
+                </dd>
+
+                <dt><span>Biais rétrospectif</span></dt>
+                <dd>Tendance à considérer les événements comme plus prévisibles qu'ils ne l'étaient réellement avant qu'ils ne se produisent.</dd>
+                <dt><span></span></dt>
+
+                <dt><span>Effet d'ambiguïté</span></dt>
+                <dd>Tendance à éviter les options formulées d'une façon qu'on ne comprend pas complètement.</dd>
+
+
+                <dt><span>Effet Hawthorne</span></dt>
+                <dd>Tendance d'un sujet humain à altérer (consciemment ou non) son comportement lorsqu'il se sait observé</dd>
+
+                <dt><span>Effet de désirabilité sociale</span></dt>
+                <dd>Les participants peuvent fournir des réponses qu'ils estiment plus socialement acceptables plutôt que leurs véritables opinions ou comportements.</dd>
+
+
+
+                <dt><span>Effet Barnum</span></dt>
+                <dd>La tendance à accepter des descriptions vagues ou générales comme étant spécifiquement applicables à soi-même.
+                    <br>
+                    <b>Survient dans les questionaires</b>
+                </dd>
+
+                <dt><span>Jingle Jangle Fallacy</span></dt>
+                <dd>Présupposé que deux phénomènes sont les mêmes parce qu'on utilise le même mot pour les désigner;
+                    Réciproquement, que deux phénomènes sont différents parce qu'on utilise des mots différents pour les désigner.
+                    <br>
+                    <b>Survient lors de la conception d'un questionnaire; lors de l'analyse de données quantitatives</b>
+                </dd>
+
+
+
+                <dt><span>Effets d'ordre (dont effet d'apprentissage)</span></dt>
+                <dd>
+                    L'ordre dans lequel les informations ou les questions sont présentées peut influencer les réponses ou les décisions des participants.
+                    <br>
+                    <b>Survient lors d'expériences répétées (Un même participants est soumis successivement à plusieurs modalités du même facteur)</b>
+                    <br>
+                    <b>Solution: contrebalancer</b>
+                </dd>
+
+                <dt><span>Effet de cadrage</span></dt>
+                <dd>La manière dont les informations sont présentées (ou "cadrées") peut influencer de manière significative la prise de décision et le comportement des utilisateurs.</dd>
+
+                <dt><span>Biais d'échantillonnage</span></dt>
+                <dd>Les participants à une étude ne sont pas représentatifs de la population cible - et donc les résultats de l'étude ne sont pas généralisable à celle-ci</dd>
+
+                <dt><span>Biais d'apprentissage</span></dt>
+                <dd>Les participants à une étude modifient leur comportement en fonction de leur exposition à un stimulus, car ils apprennent à répondre à ce stimulus. Exemple : un test d'acuité visuelle où les participants se souviennent des lettres.</dd>
+
+
+
+                <dt><span>Biais d'interprétation des corrélations</span></dt>
+                <dd>La tendance à interpréter des corrélations comme des relations causales.</dd>
+
+                <dt><span>Biais d'engagement / couts irrecuperables</span></dt>
+            </dl>
+
+        </section>
+
+    </main>
+
+</body>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Heuristic Inspection</title>
+    <style>
+        :root {
+            --bg: #f9f9f9;
+            --card-bg: #fff;
+            --border: #ccc;
+            --accent: #007acc;
+            --ghost: #bbb;
+            --font: system-ui, sans-serif;
+            --radius: 8px;
+            --gray: #ccc;
+            --dash-active: #007acc;
+            --dash-inactive: #ddd;
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            margin: 0;
+            padding: 2rem;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        fieldset{
+            border: none;
+            padding: 0;
+        }
+        .scales{
+            display:flex;
+            justify-content: space-evenly;
+        }
+        .scales>div{
+            display: flex;
+            flex-direction: column;
+            border: none;
+        }
+
+        .scales>div>label{
+            text-align: center;
+        }
+
+        .timestamps{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: .5em
+        }
+        .timestamps>*{
+            border-radius: 5px;
+        }
+
+        label{
+            padding: 1em 0 0.6em 0;
+        }
+
+     
+        textarea{
+            resize: vertical;
+            min-height: 1lh;
+            max-height: 20lh;
+        }
+        select,
+        textarea,
+        input[type="file"],
+        input[type="text"],
+        input[type="time-local"] {
+            font-family: inherit;
+            font-size: 1rem;
+            padding: 0.3em;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+            max-width: 100%;
+        }
+
+        .observation {
+            display: flex;
+            flex-direction: column;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .ghost {
+            border: 2px dashed var(--ghost);
+            color: var(--ghost);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 5rem;
+            cursor: pointer;
+            border-radius: var(--radius);
+            font-size: 1rem;
+            gap: 0.5rem;
+        }
+
+        .ghost:hover {
+            background: #eee;
+        }
+
+        .observation-controls {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.5rem;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .timestamp{
+            display: inline;
+            width: fit-content;
+        }
+        .scale {
+            display: flex;
+            gap: 0.25rem;
+            cursor: pointer;
+            margin-bottom: 0.5rem;
+        }
+
+        .dash {
+            width: 20px;
+            height: 10px;
+            border-radius: 4px;
+            background: var(--dash-inactive);
+        }
+
+        .dash.active {
+            background: var(--dash-active);
+        }
+
+        button {
+            background: var(--accent);
+            color: white;
+            padding: 0.3rem 0.5rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #005fa3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Heuristic Inspection</h1>
+        <div class="controls">
+            <div>
+                <label>Heuristic set:</label>
+                <select id="setSelector">
+                    <option value="nielsen">Nielsen</option>
+                    <option value="bastien">Bastien & Scapin</option>
+                    <option value="gherart">Gherart & Powell</option>
+                </select>
+            </div>
+            <button onclick="sortObservations()">Sort by heuristic</button>
+            <button onclick="exportToJSON()">Export JSON</button>
+        </div>
+        <div id="observations"></div>
+    </div>
+
+    <script>
+        const heuristicSets = {
+            nielsen: ["Unspecified", "Visibility of system status", "Match between system and the real world", "User control and freedom", "Consistency and standards", "Error prevention", "Recognition rather than recall", "Flexibility and efficiency of use", "Aesthetic and minimalist design", "Help users recognize, diagnose, and recover from errors", "Help and documentation"],
+            bastien: ["Unspecified", "Guidance", "Workload", "Explicit control", "Adaptability", "Error management", "Consistency", "Significance of codes", "Compatibility"],
+            gherart: ["Unspecified", "Affordance clarity", "System feedback", "Goal alignment", "User confidence", "Cognitive economy", "Emotional tone", "Context fit"]
+        };
+
+        let currentSet = 'nielsen';
+        let observations = [];
+
+        const observationsContainer = document.getElementById('observations');
+        const setSelector = document.getElementById('setSelector');
+
+        function createObservation(note = "", heuristic = "Unspecified", timestamps = [], image = null, tags = "", frequency = null, severity = null) {
+            return { note, heuristic, timestamps, image, tags, frequency, severity };
+        }
+
+        function renderScale(index, field) {
+            return `<div class="scale" data-index="${index}" data-field="${field}">
+        ${[1, 2, 3, 4, 5].map(n => `<div class="dash ${observations[index][field] >= n ? 'active' : ''}" data-value="${n}"></div>`).join('')}
+      </div>`;
+        }
+
+        function renderObservations() {
+            observationsContainer.innerHTML = '';
+            observations.forEach((obs, i) => {
+                const div = document.createElement('div');
+                div.className = 'observation';
+                div.innerHTML = `
+          <label>Observation:</label>
+          <textarea rows="3" data-index="${i}" data-field="note">${obs.note}</textarea>
+
+          <label>Violated heuristic:</label>
+          <select data-index="${i}" data-field="heuristic">
+            ${heuristicSets[currentSet].map(h =>
+                    `<option ${h === obs.heuristic ? "selected" : ""}>${h}</option>`
+                ).join("")}
+          </select>
+
+                <fieldset class="scales">
+   <div class="scale">
+          <label>Frequency:</label>
+          ${renderScale(i, 'frequency')}
+             </div>
+                <div class="scale">
+            
+          <label>Severity:</label>
+          ${renderScale(i, 'severity')}
+            </div>
+           </fieldset>
+     
+
+          <label>Attach image:</label>
+          <input type="file" accept="image/*" data-index="${i}" onchange="handleImageUpload(event, ${i})">
+
+          <label>Keywords/tags (comma-separated):</label>
+          <input type="text" data-index="${i}" data-field="tags" value="${obs.tags || ''}" placeholder="e.g., login, error, mobile">
+
+          <fieldset class="timestamps">
+              <label>Occurrences:</label>
+          ${obs.timestamps.map((t, j) => `<input class="timestamp" type="time" step="1" data-index="${i}" data-timestamp="${j}" value="${t}">`).join('')}
+          <button onclick="addTimestamp(${i})">+ Timestamp</button>
+          </fieldset>
+        
+
+        
+          <div class="observation-controls">
+            <button onclick="deleteObservation(${i})">🗑️ Delete</button>
+          </div>
+        `;
+                observationsContainer.appendChild(div);
+            });
+
+            const ghost = document.createElement('div');
+            ghost.className = 'ghost';
+            ghost.innerHTML = '<span>➕ Add observation</span>';
+            ghost.onclick = () => {
+                observations.push(createObservation());
+                renderObservations();
+            };
+            observationsContainer.appendChild(ghost);
+
+            bindInputs();
+        }
+
+        function bindInputs() {
+            document.querySelectorAll('textarea, input[type="text"]').forEach(input => {
+                input.addEventListener('input', e => {
+                    const i = +e.target.dataset.index;
+                    const field = e.target.dataset.field;
+                    observations[i][field] = e.target.value;
+                });
+            });
+
+            document.querySelectorAll('input[type="time"]').forEach(input => {
+                input.addEventListener('input', e => {
+                    const i = +e.target.dataset.index;
+                    const j = +e.target.dataset.timestamp;
+                    observations[i].timestamps[j] = e.target.value;
+                });
+            });
+
+            document.querySelectorAll('select[data-index]').forEach(s => {
+                s.addEventListener('change', e => {
+                    const i = +e.target.dataset.index;
+                    observations[i].heuristic = e.target.value;
+                });
+            });
+
+            document.querySelectorAll('.scale').forEach(scale => {
+                const i = +scale.dataset.index;
+                const field = scale.dataset.field;
+                scale.querySelectorAll('.dash').forEach((dash, idx) => {
+                    dash.onclick = () => {
+                        const value = idx + 1;
+                        if (observations[i][field] === value) {
+                            observations[i][field] = null;
+                        } else {
+                            observations[i][field] = value;
+                        }
+                        renderObservations();
+                    }
+                });
+            });
+        }
+
+        function deleteObservation(index) {
+            observations.splice(index, 1);
+            renderObservations();
+        }
+
+        function sortObservations() {
+            observations.sort((a, b) => a.heuristic.localeCompare(b.heuristic));
+            renderObservations();
+        }
+
+        function exportToJSON() {
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(observations));
+            const dl = document.createElement('a');
+            dl.setAttribute("href", dataStr);
+            dl.setAttribute("download", "observations.json");
+            dl.click();
+        }
+
+        function addTimestamp(index) {
+            // const now = new Date().toISOString()
+            const now = new Date().toTimeString().slice(0,8)
+            
+           
+            observations[index].timestamps.push(now);
+            renderObservations();
+        }
+
+        function handleImageUpload(event, index) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                observations[index].image = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        setSelector.addEventListener('change', () => {
+            if (observations.some(o => o.note.trim() || o.heuristic !== "Unspecified")) {
+                const confirmed = confirm("Switching heuristic sets will reset all heuristic labels to 'Unspecified'. Continue?");
+                if (!confirmed) {
+                    setSelector.value = currentSet;
+                    return;
+                }
+                observations = observations.map(o => ({ ...o, heuristic: "Unspecified" }));
+            }
+            currentSet = setSelector.value;
+            renderObservations();
+        });
+
+        observations = Array.from({ length: 1 }, () => createObservation());
+        renderObservations();
+    </script>
+</body>
+</html>
