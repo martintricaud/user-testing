@@ -64,7 +64,6 @@
                         <li>Hypothèse et questions de recherche</li>
                         <li>Dispositif d'observation</li>
                         <li>Facteurs de contrôle</li>
-                        <li>Traitements et plan d'expérience</li>
                         <li><a href="#informed-consent">Consentement éclairé</a>
                         </li>
                         <li><a href="#recrutement">Stratégie de recrutement</a></li>
@@ -568,22 +567,28 @@ L'interface ne doit pas contenir d'éléments visuel superflus (qui ne fournisse
                     </ul>
                 </dd> -->
 
-
             </dl>
         </section>
+
 
         <section id="approches-analytiques" class="wrapping-multi-col">
             <hgroup>
                 <h2>Conduire une inspection heuristique</h2>
             </hgroup>
-            <p class="right">
-                Les heuristiques peuvent être utilisées comme grilles d'analyse pour inspecter un design et en anticiper les défauts en l'absence de données empiriques (tirées de l'observation).
-                Mais cette même grille d'inspection peut être utilisée pour structurer un processus d'observation.
-            </p>
+            <div class="right">
+                <p class="right">
+                    Les heuristiques peuvent être utilisées comme grilles d'analyse pour inspecter un design et en anticiper les défauts en l'absence de données empiriques (tirées de l'observation).
+                    Pour plus d'objectivité, une inspection heuristique doit idéalement être menée indépendamment par plusieurs investigateurs, qui recoupent ensuite leurs observations.
+                    Le site du Norman Nielsen Group propose un <a href="https://www.nngroup.com/articles/how-to-conduct-a-heuristic-evaluation/">guide détaillé</a> sur comment mener une inspection heuristique
+                    Mais rien n'empêche d'utiliser cette même grille d'inspection pour structurer un processus d'observation.
+                </p>
+            </div>
+         
             <figure class="right">
                 <img src="heuristic-evaluation-sheet.png" alt="">
                 <figcaption>Un modèle de grille d'inspection heuristique standardisée</figcaption>
             </figure>
+            <iframe style="height: 100vh" src="heuristic-template.html" frameborder="0"></iframe>
 </section>
         <section class="activity">
             <h1>Activité</h1>
@@ -597,7 +602,12 @@ L'interface ne doit pas contenir d'éléments visuel superflus (qui ne fournisse
             </hgroup>
             <p class="right">
                 Les approches analytiques reposent sur une modélisation abstraite - souvent avec une dimension mathématique - des facteurs humains.
-                On dispose grâce à des travaux de recherche antérieurs d'estimations sur la durée de différentes opérations motrices, sensorielles ou cognitives susceptible d'intervenir au cours d'une interaction.
+                <br>
+          
+                    L'un des types d'approche analytique les plus connus est celui des modèles GOMS (Goals, Operators, Methods, Selection).
+                    Ils permettent de décomposer les interactions utilisateur en une série d'opérations élémentaires, telles que des frappes au clavier, des clics de souris, des mouvements de la main ou des décisions mentales. <br>
+                    Ces opérations sont ensuite associées à des durées estimées, permettant de prédire le temps nécessaire pour accomplir une tâche spécifique. Cette approche est particulièrement utile pour comparer différentes conceptions d'interfaces en termes d'efficacité.
+          
             </p>
             <div class="left" style="gap: 0">
                 <h3 class="left">Le modèle GOMS</h3>
@@ -611,11 +621,14 @@ L'interface ne doit pas contenir d'éléments visuel superflus (qui ne fournisse
                 <h3 class="left">Le KLM</h3>
                 <i>(Keystroke Level Model)</i>
             </div>
-            <p class="right">
-                Le KLM est l'implémentation la plus ancienne (et aussi la plus basique) du modèle GOMS.
-                Elle est conçue pour modéliser les actions dans un setup desktop basique.
-                Elle a été adaptée pour s'élargir à d'autres modalités d'interaction, par exemple tactile avec le <a href="touch-level-model">Touch Level Model (TLM)</a> 
-            </p>
+            <div class="right">
+                <p >
+                    Le KLM est l'implémentation la plus ancienne (et aussi la plus basique) du modèle GOMS.
+                    Elle est conçue pour modéliser les actions dans un setup desktop basique.
+                    Elle a été adaptée pour s'élargir à d'autres modalités d'interaction, par exemple tactile avec le <a href="https://dl.acm.org/doi/10.1145/2638404.2638532">Touch Level Model (TLM)</a> 
+                </p>
+            </div>
+            
             <figure class="right">
                 <img src="cogulator.png" alt="">
                 <figcaption>L'interface de <a href="https://cogulator.io">Cogulator</a>, un logiciel de calcul de temps d'interaction</figcaption>
@@ -703,19 +716,25 @@ L'interface ne doit pas contenir d'éléments visuel superflus (qui ne fournisse
             <dl>
                 <dt>Hypothèses et questions de recherche</dt>
                 <dd>Est-ce que je cherche à répondre à des question ouvertes, fermées, les deux?</dd>
-                <dt>Instructions, interventions et stimuli</dt>
+                <dt><a href="#manipulations">Instructions, interventions et stimuli</a></dt>
                 <dd>Quelle intervention puis-je faire en tant qu'expérimentateur pour déclencher les observations </dd>
-                <dt>Traces d'observation</dt>
-                <dd>Quelle trace de l'expérience persiste? de quel dipositif ais-je besoin pour enregistrer ces traces ?</dd>
+                <dt><a href="#observations">Traces d'observation</a></dt>
+                <dd>Quelle trace de l'expérience persiste? de quel dipositif ais-je besoin pour enregistrer ces traces ?
+                    Et quel traitement puis-je leur appliquer pour les transformer en information exploitable?
+                </dd>
                 
                 <dt>Facteurs de contrôle</dt>
-                <dd>Y-a t'il des facteurs connus (autres que les choix de conception de mon système interactif) qui peuvent influencer les observations?</dd>
+
+                <dd>Quels paramètres sont susceptibles d'avoir une influence sur l'expérience utilisateur et donc les observations?
+                    Il peut s'agir de paramètres de conception du système interactif, issus de choix techniques et artistiques, ou bien de paramètres caractéristique de l'utilisateur (par exemple son expertise, âge, sa latéralité, ses facultés sensorielles)
+                </dd>
                 <dt>Traitements et plan d'expérience</dt>
-                
+                <dd>Comment contrôler ces facteurs, c'est à dire les faire varier d'une passation à l'autre pour mettre en évidence leur influences, et éviter qu'elle ne biaise les conclusions</dd>
                 <dt><a href="#informed-consent">Consentement éclairé</a>
                 </dt>
                 <dt><a href="#recrutement">Stratégie de recrutement</a></dt>
                 <dt><a href="">Analyse des données</a></dt>
+                <dd>Quels outils sont possibles pour synthétiser les informations tirées de chaque observation - c'est à dire pour aggréger des observations individuelles en un tout cohérent et exploitable</dd>
             </dl>
         </section>
 
@@ -725,6 +744,7 @@ L'interface ne doit pas contenir d'éléments visuel superflus (qui ne fournisse
             </hgroup>
             <div class="right">
                 <p>Par "trace", on désigne tout ce qui persiste de façon objective une fois que l'expérience est terminée.
+                    Ces traces constituent de la donnée "brute", un peu comme une matière première qu'il faudrait raffiner pour la transformer en information exploitable.
                 </p>
                 <ul>
                     <li>Sketch-noting</li>
@@ -742,6 +762,23 @@ L'interface ne doit pas contenir d'éléments visuel superflus (qui ne fournisse
                 <figcaption>Classification des principales méthodes de recherche empirique</figcaption>
             </figure>
         </section>
+
+        <!-- <section id="tasks-and-scenarios" class=" wrapping-multi-col ">
+            <hgroup>
+                <h2>Tâches et Scénarios</h2>
+            </hgroup>
+            <div class="right">
+                Quels interventions sont nécessaires de la part de la personne qui conduit l'expérience pour déclencher les phénomènes que l'on veut observer?
+                <br> 
+                Quelles situations sont le plus susceptibles de fournir les observations qui permettront de répondre à la question qu'on se pose?
+
+                L'ensemble des caractéristiques de la situation que l'on contrôle, on appelle ça des facteurs.
+                Un facteur peut avoir plusieurs <strong>niveaux</strong> ou <strong>modalités</strong>.
+                Un traitement c'est un choix de modalité pour chacun des facteurs
+
+            </div>
+        </section> -->
+
         <section id="observations" class="wrapping-multi-col ">
             <hgroup>
                 <h2>Collecte et traitement des données d'observations</h2>
@@ -809,12 +846,8 @@ L'interface ne doit pas contenir d'éléments visuel superflus (qui ne fournisse
                 <p class="right">
                     Le test des 5 secondes sert à desamorcer les problèmes qui surviennent dans les tous premiers instants d'une expérience utilisateur.
                 </p>
-
-
-
             </div>
             <iframe class="full" style="width:100%; height:100%" class="sl-demo" src="https://app.storylane.io/demo/lzjlftyfuull?embed=inline" name="sl-embed" allow="fullscreen" allowfullscreen="" style="position:absolute;top:0;left:0;width:100%!important;height:100%!important;border:1px solid rgba(63,95,172,0.35);box-shadow:0px 0px 18px rgba(26, 19, 72, 0.15);box-sizing:border-box" width="100%" height="100%"></iframe>
-            
             <dl>
                 <dt>Protocole de test</dt>
                 <dd>
@@ -871,10 +904,8 @@ L'interface ne doit pas contenir d'éléments visuel superflus (qui ne fournisse
                     interface avec 2 modalités, within subjects, contrebalancées -->
                 </dd>
             </dl>
-
-
-
         </section>
+
         <section id="example-fatsecret" title="" class=" wrapping-multi-col ">
             <hgroup>
                 <h2>Test d'usabilité simple</h2>
@@ -993,6 +1024,7 @@ L'interface ne doit pas contenir d'éléments visuel superflus (qui ne fournisse
                     TextoShop est un éditeur de texte qui s'inspire du workflow des environnements d'édition d'images vectorielles
                 </p>
             </div>
+            <iframe style="width:100%; aspect-ratio: 1.77;" src="https://www.youtube.com/embed/I1FI98RTzak?si=epZaScrvpgm4Qh0c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             <dl>
                 <dt>Participants</dt>
                 <dd>12</dd>
@@ -1097,6 +1129,7 @@ L'interface ne doit pas contenir d'éléments visuel superflus (qui ne fournisse
 
 
         </section>
+
         <!-- <section id="example-stickylines" title="" class=" wrapping-multi-col ">
             <hgroup>
                 <h2>Exemple d'étude: StickyLines</h2>
@@ -1132,6 +1165,7 @@ L'interface ne doit pas contenir d'éléments visuel superflus (qui ne fournisse
                 </dd>
             </dl>
         </section> -->
+        
         <section id="example-facebook" title="" class=" wrapping-multi-col ">
             <hgroup>
                 <h2>Exemple d'étude: Facebook</h2>
@@ -1203,8 +1237,6 @@ L'interface ne doit pas contenir d'éléments visuel superflus (qui ne fournisse
             </div>
         </section> -->
 
-
-
         <section id="informed-consent" class=" wrapping-multi-col ">
             <hgroup>
                 <h2>Consentement informé</h2>
@@ -1270,20 +1302,14 @@ L'interface ne doit pas contenir d'éléments visuel superflus (qui ne fournisse
         </section>
 
 
-        <section id="tasks-and-scenarios" class=" wrapping-multi-col ">
-            <hgroup>
-                <h2>Tâches et Scénarios</h2>
-            </hgroup>
-            <div class="right">
-                Quelles situations sont le plus susceptibles de fournir les observations qui permettront de répondre à la question qu'on se pose?
 
-                L'ensemble des caractéristiques de la situation que l'on contrôle, on appelle ça des facteurs.
-                Un facteur peut avoir plusieurs niveaux ou modalités.
-                Un traitement c'est un choix de modalité pour chacun des facteurs
 
-            </div>
-        </section>
         <section class=" wrapping-multi-col " id="questionnaires">
+            <p>
+                Les réponses aux questionnaires sont toujours fournies sur des échelles.
+                On appelle les différentes gradations de l'échelle des <i>ancres</i>.
+                Les ancres sont presque toujours formulées qualitativement, sous forme de texte; parfois par des pictogrammes, et jamais par des chiffres.
+            </p>
             <hgroup>
                 <h2>Questionnaires et échelles</h2>
             </hgroup>
@@ -1469,9 +1495,14 @@ L'interface ne doit pas contenir d'éléments visuel superflus (qui ne fournisse
                     Evalue l'attractivité d'un système. <a href="http://www.attrakdiff.de/" rel="nofollow">Attrakdiff3</a> est utilisé ici.
                     <br>Echelle Sémantique Différentielle (⚠️) à 4x7 items et 7 points
                 </dd>
-                <dt><span>meCUE <br></span></dt>
+                <dt><span>Modular Evaluation of key Components of User Experience (MECUE)  <br> [Minge et al. 2013]</span></dt>
                 <dd>
-                   
+                    evalue l'expérience utilisateur à l'aide de quatre sous-questionnaires portant sur
+                    la perception des qualités instrumentales, la perception des qualités non instrumentales, les émotions, et les conséquences de l'usage, plus une question d'appréciation générale
+                    <br>
+                    <br>Echelle de Likert à 33 items à 5 points, répartis en 4 groupes; 1 echelle Sémantique Différentielle à 11 points.
+                    <a href="https://mecue.de/english/download-en.html">Documentation</a>
+                    <a href="https://uxmind.eu/wp-content/uploads/2018/10/version-franccca7aise-mecue-lallemand-2018.pdf">Version Française</a>
                 </dd>
             </dl>
             <h3 class="right">Questionnaires de présence et d'immersion</h3>

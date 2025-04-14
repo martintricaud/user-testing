@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Questionnaire Scales</title>
+  <style>
+    fieldset {
+      border: none;
+    }
+
+    .scale {
+      display: flex;
+      overflow-x: auto;
+      overflow-y: scroll;
+      gap: 2em;
+    }
+
+    label {
+      display: flex;
+      text-align: center;
+      flex-direction: column;
+      align-items: center;
+      justify-content:end;
+      font-size: clamp(10px, 2vw, 100%);
+
+    }
+  </style>
+</head>
+<body>
+
+  <form>
+
+    <fieldset>
+      <dt><legend><h3>a. Bipolar Scale</h3></legend></dt>
+      <dd class="scale">
+        <label>
+          Very Large Negative Effect
+          <input type="radio" name="bipolar" value="-4">
+        </label>
+        <label>
+          Substantial Negative Effect
+          <input type="radio" name="bipolar" value="-3">
+        </label>
+        <label>
+          Moderate Negative Effect
+          <input type="radio" name="bipolar" value="-2">
+        </label>
+        <label>
+          Small Negative Effect
+          <input type="radio" name="bipolar" value="-1">
+        </label>
+        <label>
+          No Effect
+          <input type="radio" name="bipolar" value="0">
+        </label>
+        <label>
+          Small Positive Effect
+          <input type="radio" name="bipolar" value="1">
+        </label>
+        <label>
+          Moderate Positive Effect
+          <input type="radio" name="bipolar" value="2">
+        </label>
+        <label>
+          Substantial Positive Effect
+          <input type="radio" name="bipolar" value="3">
+        </label>
+        <label>
+          Very Large Positive Effect
+          <input type="radio" name="bipolar" value="4">
+        </label>
+      </dd>
+    </fieldset>
+
+    <fieldset>
+      <dt><legend><h3>b. Unipolar Intensity Scale</h3></legend></dt>
+      <dd class="scale">
+        <label>
+          No Effect
+          <input type="radio" name="unipolar" value="0">
+        </label>
+        <label>
+          Small Effect
+          <input type="radio" name="unipolar" value="1">
+        </label>
+        <label>
+          Moderate Effect
+          <input type="radio" name="unipolar" value="2">
+        </label>
+        <label>
+          Substantial Effect
+          <input type="radio" name="unipolar" value="3">
+        </label>
+        <label>
+          Very Large Effect
+          <input type="radio" name="unipolar" value="4">
+        </label>
+      </dd>
+    </fieldset>
+
+    <fieldset>
+      <dt><legend><h3>d. 9-Point Relative Intensity Scale</h3></legend></dt>
+      <dd class="scale">
+        <label>
+          Left Event Very Much More Effect
+          <input type="radio" name="relative9" value="-4">
+        </label>
+        <label>
+          Left Event Substantially More Effect
+          <input type="radio" name="relative9" value="-3">
+        </label>
+        <label>
+          Left Event Moderately More Effect
+          <input type="radio" name="relative9" value="-2">
+        </label>
+        <label>
+          Left Event Slightly More Effect
+          <input type="radio" name="relative9" value="-1">
+        </label>
+        <label>
+          Equal Effect
+          <input type="radio" name="relative9" value="0">
+        </label>
+        <label>
+          Right Event Slightly More Effect
+          <input type="radio" name="relative9" value="1">
+        </label>
+        <label>
+          Right Event Moderately More Effect
+          <input type="radio" name="relative9" value="2">
+        </label>
+        <label>
+          Right Event Substantially More Effect
+          <input type="radio" name="relative9" value="3">
+        </label>
+        <label>
+          Right Event Very Much More Effect
+          <input type="radio" name="relative9" value="4">
+        </label>
+      </dd>
+    </fieldset>
+
+  </form>
+
+</body>
+</html>

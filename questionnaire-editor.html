@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Questionnaire Editor</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #333;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            position: relative;
+        }
+
+        main {
+            padding: 1rem;
+            width: fit-content;
+
+        }
+
+        #add-item {
+            display: block;
+            width: 100%;
+        }
+
+        .item {
+            border: 0.5px solid black;
+            margin-bottom: 1rem;
+            width: fit-content;
+            display: flex;
+            align-items: stretch;
+            flex-wrap: wrap;
+        }
+
+        fieldset {
+            margin: 0;
+            padding: 1rem;
+            flex-grow: 1;
+            width: max-content;
+            text-wrap: nowrap;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            border: 0.5px solid black;
+        }
+
+
+        .radio-group {
+            display: flex;
+            justify-content: center;
+            margin: auto 0;
+            flex-wrap: nowrap;
+        }
+
+        .radio-label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 0.5rem;
+            max-width: 80px;
+            word-wrap: break-word;
+        }
+
+        .radio-label input[type="radio"] {
+            display: block;
+            margin: 0.5rem auto 0;
+        }
+
+        .radio-label input.label-input {
+            width: 100%;
+            text-align: center;
+            overflow: visible !important;
+            text-wrap: wrap;
+        }
+
+        .scale-selector {
+            grid-area: b;
+            display: flex;
+            gap: .5ch;
+        }
+
+        /* 
+        .question{
+            grid-column: 1 / span 1;
+            grid-row: 1 / span 2;
+        } */
+        span.question {
+            grid-area: a;
+        }
+
+        textarea.question {
+            resize: vertical;
+            width: 100%;
+        }
+
+        .radio-group {
+            grid-area: d;
+        }
+
+        select {
+            width: min-content;
+        }
+
+        textarea {
+            width: max-content;
+
+        }
+
+
+
+        .mode-switch {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            color: white;
+        }
+
+
+        .response-mode .item select[data-option="templateSelect"],
+        .response-mode .item select[data-option="scaleSelect"],
+        .response-mode .admin-only {
+            display: none;
+
+        }
+
+        input:disabled {
+            border: none;
+            background: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Questionnaire Editor</h1>
+        <label class="mode-switch">
+            Mode réponse
+            <input type="checkbox" id="modeSwitch">
+        </label>
+
+
+
+    </header>
+    <main>
+        <div id="item-list"></div>
+        <!-- <section class="item" id="q1">
+            <label>
+                <span class="admin-only">Question ou affirmation:</span>
+                <textarea rows="2"></textarea>
+            </label>
+
+            <label class="admin-only">
+                Type d'échelle:
+                <select data-option="scaleSelect">
+                    <option value="three">3 points</option>
+                    <option value="five">5 points</option>
+                    <option value="seven">7 points</option>
+                    <option value="nine">9 points</option>
+                    <option value="eleven">11 points</option>
+                </select>
+            </label>
+
+            <div class="radio-group" id="radioGroup"></div>
+
+            <label class="admin-only">
+                Modèle de template:
+                <select data-option="templateSelect"></select>
+            </label>
+        </section> -->
+        <button id="add-item">
+            Add Item
+        </button>
+    </main>
+
+    <script>
+        const templates = {
+
+            Likert: {
+                3: ['Pas d\'accord', 'Neutre', 'D\'accord'],
+                5: ['Pas du tout d\'accord', 'Pas vraiment d\'accord', 'Neutre', 'Plutôt d\'accord', 'Tout à fait d\'accord'],
+                7: ['Pas du tout d\'accord', '', '', 'Neutre', 'À peu près d\'accord', '', 'Tout à fait d\'accord'],
+                9: ['Pas du tout d\'accord', '', 'Pas vraiment d\'accord', '', 'Neutre', '', 'D\'accord', '', 'Tout à fait d\'accord'],
+                11: ['Pas du tout d\'accord', '', '', '', '', 'Neutre', '', '', '', '', 'Tout à fait d\'accord']
+            },
+            SemanticDifferential: {
+                3: ['Adjectif', '', 'Adjectif opposé'],
+                5: ['Adjectif', '', '', '', 'Adjectif opposé'],
+                7: ['Adjectif', '', '', '', '', '', 'Adjectif opposé'],
+                9: ['Adjectif', '', '', '', '', '', '', '', 'Adjectif opposé'],
+                11: ['Adjectif', '', '', '', '', '', '', '', '', '', 'Adjectif opposé']
+            }
+        };
+
+        const questionnaireTemplates = {
+            mecue: {
+                name:"",
+                num_points: 5,
+                anchors: templates.Likert[this.num_points],
+                items: [
+                    {id:"", content:"The product is easy to use"},
+                    {id:"",content:"The functions of the product are exactly right for my goals"},
+                    {id:"", content:"It is quickly apparent how to use the product"},
+                    {id:"",content:"I consider the product extremely useful"},
+                    {id:"",content:"The operating procedures of the product are simple to understand."},
+                    {id:"",content:"With the help of this product I will achieve my goals."},
+                ]
+            },
+            sus: {
+                name: "System Usability Scale",
+                num_points: 5,
+                anchors: templates.Likert[this.num_points],
+                items: [
+                    { label: "SUS Q1" },
+                    { label: "SUS Q1" },
+                    { label: "SUS Q1" },
+                    { label: "SUS Q1" },
+                ]
+            },
+            nasa_tlx: { name: "NASA Task Load Index" },
+            vrsq: { name: "Virtual Reality Sickness Questionnaire" },
+            nps: { name: "Net Promoter Score" },
+            seq: { name: "Single Use Question" }
+
+        }
+
+        function questionnaireFromTemplate(list) {
+            Object.keys(list).forEach(a => console.log(a))
+        }
+
+        questionnaireFromTemplate(questionnaireTemplates)
+
+        const modeSwitch = document.getElementById('modeSwitch');
+
+        modeSwitch.addEventListener('change', updateEditability);
+
+
+        function updateEditability() {
+            const isResponseMode = modeSwitch.checked;
+            document.body.classList.toggle('response-mode', isResponseMode);
+
+
+            document.querySelectorAll('textarea, select, .label-input').forEach(el => {
+                el.disabled = isResponseMode;
+            });
+        }
+
+
+
+        let id = "q2"
+
+        function createItem(id, numPoints, templateNumber) {
+            let itemContent = `
+            <fieldset>
+           
+                <div class="admin-only question">Question ou affirmation:</div>
+                <textarea rows="2" class="question"></textarea>
+           
+        </fieldset>
+       
+        <fieldset>
+            <label class="scale-selector admin-only">
+                Échelle
+                <select data-option="templateSelect"></select>
+                à 
+                <select data-option="scaleSelect">
+                    <option value=3>3</option>
+                    <option value=5>5</option>
+                    <option value=7>7</option>
+                    <option value=9>9</option>
+                    <option value=11>11</option>
+                </select>
+                points
+            </label>
+            <div class="radio-group" data-option="radioGroup"></div>
+        </fieldset>
+       
+            
+
+            
+            `
+            let fragment = document.createDocumentFragment();
+            let item = document.createElement("section");
+            item.id = id
+            item.classList.add("item")
+            item.innerHTML = itemContent;
+            fragment.appendChild(item)
+
+            const [
+                scaleSelect,
+                templateSelect,
+                radioGroup
+            ] = ["scaleSelect", "templateSelect", "radioGroup"].map(e => fragment.querySelector(`#${id} *[data-option="${e}"]`))
+
+            Object.keys(templates).forEach(templateName => {
+                const option = document.createElement('option');
+                option.value = templateName;
+                option.textContent = templateName;
+                templateSelect.appendChild(option);
+            });
+
+            function renderRadioInputs(scale, labels = []) {
+                radioGroup.innerHTML = '';
+                const count = {
+                    3: 3, 5: 5, 7: 7, 9: 9, 11: 11
+                }[scale];
+
+                for (let i = 0; i < count; i++) {
+                    const labelDiv = document.createElement('div');
+                    labelDiv.className = 'radio-label';
+
+                    const labelInput = document.createElement('input');
+                    labelInput.type = 'text';
+                    labelInput.value = labels[i] || '';
+                    labelInput.classList.add('label-input');
+
+                    const radioInput = document.createElement('input');
+                    radioInput.type = 'radio';
+                    radioInput.name = 'scale';
+
+                    labelDiv.appendChild(labelInput);
+                    labelDiv.appendChild(radioInput);
+                    radioGroup.appendChild(labelDiv);
+                }
+                updateEditability();
+            }
+
+
+            scaleSelect.addEventListener('change', () => {
+                const scale = scaleSelect.value;
+                const templateName = templateSelect.value;
+                const labels = templates[templateName]?.[scale] || [];
+                renderRadioInputs(scale, labels);
+            });
+
+            templateSelect.addEventListener('change', () => {
+                const scale = scaleSelect.value;
+                const templateName = templateSelect.value;
+                const labels = templates[templateName]?.[scale] || [];
+                renderRadioInputs(scale, labels);
+            });
+
+
+            // Initial render
+            scaleSelect.value = numPoints;
+            templateSelect.value = Object.keys(templates)[templateNumber];
+            renderRadioInputs(numPoints, templates[templateSelect.value][numPoints]);
+
+            return fragment;
+
+        }
+
+        let items = [createItem(id, 3, 0)];
+        items.forEach(item => document.body.querySelector("#item-list").appendChild(item))
+
+
+        document.querySelector("#add-item").addEventListener("click", e => {
+            items.push(createItem(id, 3, 0))
+        })
+    </script>
+</body>
+</html>
