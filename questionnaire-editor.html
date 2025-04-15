@@ -135,6 +135,7 @@
             background: none;
         }
     </style>
+
 </head>
 <body>
     <header>
@@ -178,7 +179,10 @@
         </button>
     </main>
 
+
     <script>
+
+      
         const templates = {
 
             Likert: {
@@ -188,27 +192,45 @@
                 9: ['Pas du tout d\'accord', '', 'Pas vraiment d\'accord', '', 'Neutre', '', 'D\'accord', '', 'Tout à fait d\'accord'],
                 11: ['Pas du tout d\'accord', '', '', '', '', 'Neutre', '', '', '', '', 'Tout à fait d\'accord']
             },
-            SemanticDifferential: {
-                3: ['Adjectif', '', 'Adjectif opposé'],
-                5: ['Adjectif', '', '', '', 'Adjectif opposé'],
-                7: ['Adjectif', '', '', '', '', '', 'Adjectif opposé'],
-                9: ['Adjectif', '', '', '', '', '', '', '', 'Adjectif opposé'],
-                11: ['Adjectif', '', '', '', '', '', '', '', '', '', 'Adjectif opposé']
+            SemanticDifferential: ([adjective1, adjective2]) => {
+                return {
+                    3: [adjective1, '', adjective2],
+                    5: [adjective1, '', '', '', adjective2],
+                    7: [adjective1, '', '', '', '', '', adjective2],
+                    9: [adjective1, '', '', '', '', '', '', '', adjective2],
+                    11: [adjective1, '', '', '', '', '', '', '', '', '', adjective2]
+                }
             }
         };
 
         const questionnaireTemplates = {
-            mecue: {
-                name:"",
+            mecue1: {
+                name: "",
                 num_points: 5,
                 anchors: templates.Likert[this.num_points],
                 items: [
-                    {id:"", content:"The product is easy to use"},
-                    {id:"",content:"The functions of the product are exactly right for my goals"},
-                    {id:"", content:"It is quickly apparent how to use the product"},
-                    {id:"",content:"I consider the product extremely useful"},
-                    {id:"",content:"The operating procedures of the product are simple to understand."},
-                    {id:"",content:"With the help of this product I will achieve my goals."},
+                    { id: "u1", content: "The product is easy to use" },
+                    { id: "f1", content: "The functions of the product are exactly right for my goals" },
+                    { id: "u2", content: "It is quickly apparent how to use the product" },
+                    { id: "f2", content: "I consider the product extremely useful" },
+                    { id: "u3", content: "The operating procedures of the product are simple to understand." },
+                    { id: "fr", content: "With the help of this product I will achieve my goals." },
+                ]
+            },
+            mecue2: {
+                name: "",
+                num_points: 5,
+                anchors: templates.Likert[this.num_points],
+                items: [
+                    { id: "a1", content: "The product is creatively designed." },
+                    { id: "s1", content: "The product would enhance my standing among peers." },
+                    { id: "b1", content: "I could not live without this product." },
+                    { id: "a2", content: "The design looks attractive." },
+                    { id: "s2", content: "By using the product, I would be perceived differently." },
+                    { id: "b2", content: "The product is like a friend to me." },
+                    { id: "a3", content: "The product is stylish." },
+                    { id: "b3", content: "If I ever lost the product, I would be devastated." },
+                    { id: "s3", content: "I would not mind if my friends envied me for this product." }
                 ]
             },
             sus: {
@@ -216,13 +238,31 @@
                 num_points: 5,
                 anchors: templates.Likert[this.num_points],
                 items: [
-                    { label: "SUS Q1" },
-                    { label: "SUS Q1" },
-                    { label: "SUS Q1" },
-                    { label: "SUS Q1" },
+                    { content: "I think that I would like to use this system frequently." }
+                    , { content: "I found the system unnecessarily complex." }
+                    , { content: "I thought the system was easy to use." }
+                    , { content: "I think that I would need the support of a technical person to be able to use this system.	" }
+                    , { content: "I found the various functions in this system were well integrated." }
+                    , { content: "I thought there was too much inconsistency in this system." }
+                    , { content: "I would imagine that most people would learn to use this system very quickly." }
+                    , { content: "I found the system very cumbersome to use." }
+                    , { content: "I felt very confident using the system." }
+                    , { content: "I needed to learn a lot of things before I could get going with this system" }
                 ]
             },
-            nasa_tlx: { name: "NASA Task Load Index" },
+            nasa_tlx: {
+                name: "NASA Task Load Index",
+                num_points: 11,
+                anchors: templates.SemanticDifferential(["Very Low", "Very High"])[this.num_points],
+                items: [
+                    { content: "Mental Demand: How much mental and perceptual activity was required? Was the task easy or demanding, simple or complex?" },
+                    { content: "Physical Demand: How much physical activity was required? Was the task easy or demanding, slack or strenuous?" },
+                    { content: "Temporal Demand: How much time pressure did you feel due to the pace at which the tasks or task elements occurred? Was the pace slow or rapid?" },
+                    { content: "Own Performance: How successful were you in performing the task? How satisfied were you with your performance?" },
+                    { content: "Effort: How hard did you have to work (mentally and physically) to accomplish your level of performance?" },
+                    { content: "Frustration Level: How irritated, stressed, and annoyed versus content, relaxed, and complacent did you feel during the task?" },
+                ]
+            },
             vrsq: { name: "Virtual Reality Sickness Questionnaire" },
             nps: { name: "Net Promoter Score" },
             seq: { name: "Single Use Question" }
@@ -355,13 +395,15 @@
 
         }
 
-        let items = [createItem(id, 3, 0)];
-        items.forEach(item => document.body.querySelector("#item-list").appendChild(item))
+
+        let idNumber = 0
+ 
+        document.querySelector('#add-item').addEventListener('click', () => {
+            idNumber = idNumber + 1;
+            document.body.querySelector("#item-list").appendChild(createItem(`q${idNumber}`,3,0))
+        });
 
 
-        document.querySelector("#add-item").addEventListener("click", e => {
-            items.push(createItem(id, 3, 0))
-        })
     </script>
 </body>
 </html>

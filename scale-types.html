@@ -11,17 +11,16 @@
     .scale {
       display: flex;
       overflow-x: auto;
-      overflow-y: scroll;
       gap: 2em;
     }
 
-    label {
+    .anchor {
       display: flex;
       text-align: center;
       flex-direction: column;
       align-items: center;
       justify-content:end;
-      font-size: clamp(10px, 2vw, 100%);
+      font-size: clamp(12px, 2vw, 100%);
 
     }
   </style>
@@ -29,112 +28,129 @@
 <body>
 
   <form>
-
     <fieldset>
-      <dt><legend><h3>a. Bipolar Scale</h3></legend></dt>
+        <dt><legend><h3>Echelle d'agrément bipolaire (échelle de Likert)</h3></legend></dt>
+        <dd class="scale">
+          <label class="anchor">
+            Pas du tout d'accord avec X
+            <input type="radio" name="bipolar" value="-4">
+          </label>
+          <label class="anchor">
+            Plutôt pas d'accord avec X
+            <input type="radio" name="bipolar" value="-3">
+          </label>
+          <label class="anchor">
+            Neutre
+            <input type="radio" name="bipolar" value="0">
+          </label>
+          <label class="anchor">
+            Plutôt d'accord avec X
+            <input type="radio" name="bipolar" value="1">
+          </label>
+          <label class="anchor">
+            Tout à fait d'accord avec X
+            <input type="radio" name="bipolar" value="2">
+          </label>
+        </dd>
+      </fieldset>
+      <fieldset>
+        <dt><legend><h3>Echelle d'agrément relative</h3></legend></dt>
+        <dd class="scale">
+          <label class="anchor">
+            Beaucoup plus d'accord avec X
+            <input type="radio" name="bipolar" value="-4">
+          </label>
+          <label class="anchor">
+            Plutôt plus d'accord avec X
+            <input type="radio" name="bipolar" value="-3">
+          </label>
+          <label class="anchor">
+            Neutre
+            <input type="radio" name="bipolar" value="0">
+          </label>
+          <label class="anchor">
+            Plutôt plus d'accord avec Y
+            <input type="radio" name="bipolar" value="1">
+          </label>
+          <label class="anchor">
+            Beaucoup plus d'accord avec Y
+            <input type="radio" name="bipolar" value="2">
+          </label>
+        </dd>
+      </fieldset>
+    <fieldset>
+      <dt><legend><h3>Echelle d'intensité bipolaire</h3></legend></dt>
       <dd class="scale">
-        <label>
-          Very Large Negative Effect
+        <label class="anchor">
+          X a un effet negatif important
           <input type="radio" name="bipolar" value="-4">
         </label>
-        <label>
-          Substantial Negative Effect
-          <input type="radio" name="bipolar" value="-3">
-        </label>
-        <label>
-          Moderate Negative Effect
-          <input type="radio" name="bipolar" value="-2">
-        </label>
-        <label>
-          Small Negative Effect
+        <label class="anchor">
+          X a un effet negatif modéré
           <input type="radio" name="bipolar" value="-1">
         </label>
-        <label>
-          No Effect
+        <label class="anchor">
+          X n'a aucun effet
           <input type="radio" name="bipolar" value="0">
         </label>
-        <label>
-          Small Positive Effect
-          <input type="radio" name="bipolar" value="1">
-        </label>
-        <label>
-          Moderate Positive Effect
-          <input type="radio" name="bipolar" value="2">
-        </label>
-        <label>
-          Substantial Positive Effect
+        <label class="anchor">
+          X a un effet positif modéré
           <input type="radio" name="bipolar" value="3">
         </label>
-        <label>
-          Very Large Positive Effect
+        <label class="anchor">
+         X a un effet positif important
           <input type="radio" name="bipolar" value="4">
         </label>
       </dd>
     </fieldset>
 
     <fieldset>
-      <dt><legend><h3>b. Unipolar Intensity Scale</h3></legend></dt>
+      <dt><legend><h3>Echelle d'intensité unipolaire</h3></legend></dt>
       <dd class="scale">
-        <label>
-          No Effect
+        <label class="anchor">
+          X n'a aucun effet
           <input type="radio" name="unipolar" value="0">
         </label>
-        <label>
-          Small Effect
+        <label class="anchor">
+          X a un léger effet
           <input type="radio" name="unipolar" value="1">
         </label>
-        <label>
-          Moderate Effect
+        <label class="anchor">
+          X a un effet modéré
           <input type="radio" name="unipolar" value="2">
         </label>
-        <label>
-          Substantial Effect
+        <label class="anchor">
+         X a un effet substantiel
           <input type="radio" name="unipolar" value="3">
         </label>
-        <label>
-          Very Large Effect
+        <label class="anchor">
+          X a un effet très important
           <input type="radio" name="unipolar" value="4">
         </label>
       </dd>
     </fieldset>
 
     <fieldset>
-      <dt><legend><h3>d. 9-Point Relative Intensity Scale</h3></legend></dt>
+      <dt><legend><h3>Echelle d'intensité relative bipolaire </h3></legend></dt>
       <dd class="scale">
-        <label>
-          Left Event Very Much More Effect
+        <label class="anchor">
+          X a beaucoup plus d'effet
           <input type="radio" name="relative9" value="-4">
         </label>
-        <label>
-          Left Event Substantially More Effect
+        <label class="anchor">
+            X a un peu plus d'effet
           <input type="radio" name="relative9" value="-3">
         </label>
-        <label>
-          Left Event Moderately More Effect
-          <input type="radio" name="relative9" value="-2">
-        </label>
-        <label>
-          Left Event Slightly More Effect
-          <input type="radio" name="relative9" value="-1">
-        </label>
-        <label>
-          Equal Effect
+        <label class="anchor">
+            X et Y ont le même effet
           <input type="radio" name="relative9" value="0">
         </label>
-        <label>
-          Right Event Slightly More Effect
+        <label class="anchor">
+            Y a un peu plus d'effet
           <input type="radio" name="relative9" value="1">
         </label>
-        <label>
-          Right Event Moderately More Effect
-          <input type="radio" name="relative9" value="2">
-        </label>
-        <label>
-          Right Event Substantially More Effect
-          <input type="radio" name="relative9" value="3">
-        </label>
-        <label>
-          Right Event Very Much More Effect
+        <label class="anchor">
+            Y a beaucoup plus d'effet
           <input type="radio" name="relative9" value="4">
         </label>
       </dd>
