@@ -40,8 +40,9 @@ a:hover {
 }
 
 strong {
-    color: rgb(127, 42, 153);
-    background-color: rgba(255, 255, 255, 0.556);
+    padding: 0  0.5ch;
+    color: rgb(95, 25, 116);
+    background-color: rgb(255, 251, 0);
 }
 
 @media (max-width: 40rem) {
@@ -172,7 +173,7 @@ hgroup:has(h2)+* {
     grid-row-start: 2;
 }
 
-hgroup:has(h2)~*:not(table, iframe) {
+hgroup:has(h2)~*:not(table, iframe, p) {
     grid-column: 1 / span 2;
     display: grid;
     grid-template-columns: subgrid;
