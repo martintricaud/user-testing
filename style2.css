@@ -100,11 +100,13 @@ section {
     margin: 0 auto;
     position: relative;
     padding: 0 var(--main-padding);
-    padding-bottom: calc(2*var(--main-padding));
+    padding-bottom: var(--main-padding);
     scroll-snap-align: start;
     overflow-y: auto;
-    height: 100vh;
-    grid-template-columns: var(--template)
+    height: calc(100vh - var(--main-padding));
+    margin-bottom: var(--main-padding);
+    grid-template-columns: var(--template);
+    border-bottom: 2px solid black;
 }
 
 ul,
@@ -322,12 +324,11 @@ details[open] *:not(summary) {
 }
 
 .activity {
-    background-color: #eff;
+ 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     vertical-align: middle;
 }
 
